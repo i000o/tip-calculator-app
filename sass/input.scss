@@ -19,7 +19,6 @@ body {
 .logo { 
     margin: 30px;
     width: 20%;
-    
 }
 
 .card { 
@@ -32,17 +31,34 @@ body {
     height: 90svh;
 }
 
-footer { 
-    display: inline-block;
-    margin: 20px 0;
-    color: hsl(186, 14%, 43%);
-    text-align: center;
-    font-size: 0.5em;
-}
-
 h1, h2 { 
     font-size: 0.9em;
     color: hsl(186, 14%, 43%);
+}
+
+h2 { 
+    margin: 20px 0;
+}
+
+input[type="bill-number"], input[type="people-number"] { 
+    background-color: hsl(185, 41%, 84%, 30%);
+    border-radius: 5px;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    background-size: 12px;
+}
+
+input[type="bill-number"] { 
+    background-image: url(../images/icon-dollar.svg);
+    background-position: left 10px center;
+    background-repeat: no-repeat;
+}
+
+input[type="people-number"] { 
+    background-image: url(../images/icon-person.svg);
+    background-position: left 10px center;
+    background-repeat: no-repeat;
 }
 
 .grid-flex { 
@@ -56,21 +72,27 @@ ol {
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 3; 
     gap: 10px;
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
     min-width: 100%;
 }
 
-ol li { 
+ol li button { 
     color: hsl(0, 100%, 100%);
     background-color: hsl(183, 100%, 15%);
     border-radius: 5px;
-    padding: 5px 35px;
+    padding: 8px 35px;
     text-align: center;
     font-size: 1.3em;
+    width: 100%;
 }
 
-ol li:active { 
+button { 
+    font: inherit;
+    border: none;
+}
+
+button:active { 
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
@@ -86,6 +108,8 @@ ol li:active {
     background-color: hsl(183, 100%, 15%);
     border-radius: 12px;
     padding: 20px;
+    margin: 25px 0;
+    height: auto;
 
     h2 { 
         color: hsl(0, 100%, 100%);
@@ -110,5 +134,13 @@ p {
     border: none;
     font-size: 0.9em;
     min-width: 100%;
+}
+
+footer { 
+    // display: inline-block;
+    margin: 20px 0;
+    color: hsl(186, 14%, 43%);
+    text-align: center;
+    font-size: 0.5em;
 }
 
