@@ -1,0 +1,114 @@
+@use 'reset';
+@use 'footer'; 
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body { 
+    font-family: 'space mono', sans-serif;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-color: hsl(185, 41%, 84%);
+    height: 100svh;
+    font-weight: 700;
+    margin: 0;
+}
+
+.logo { 
+    margin: 30px;
+    width: 20%;
+    
+}
+
+.card { 
+    background-color: hsl(0, 100%, 100%);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px 30px;
+    // width: 100%;
+    min-width: 24em;
+    height: 90svh;
+}
+
+footer { 
+    display: inline-block;
+    margin: 20px 0;
+    color: hsl(186, 14%, 43%);
+    text-align: center;
+    font-size: 0.5em;
+}
+
+h1, h2 { 
+    font-size: 0.9em;
+    color: hsl(186, 14%, 43%);
+}
+
+.grid-flex { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+ol { 
+    display: inline-grid; 
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 3; 
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+}
+
+ol li { 
+    color: hsl(0, 100%, 100%);
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 5px;
+    padding: 5px 35px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+ol li:active { 
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+
+.custom { 
+    background-color: hsl(189, 47%, 97%);
+    color: hsl(186, 14%, 43%);
+    text-align: right;
+}
+
+.tip { 
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 12px;
+    padding: 20px;
+
+    h2 { 
+        color: hsl(0, 100%, 100%);
+    }
+}
+
+p { 
+    color: hsl(186, 14%, 43%);
+    font-size: 0.8em;
+    margin-top: -10px;
+}
+
+.reset { 
+    background-color: hsl(172, 67%, 45%);
+    text-align: center;
+    color: hsl(183, 100%, 15%);
+    font-family: 'space mono', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 85px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.9em;
+    min-width: 100%;
+}
+
