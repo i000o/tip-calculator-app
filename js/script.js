@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", ( => { // wait til DOM is fully loaded before you do anything
+document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully loaded before you do anything
     // preventDefault? 
     // declare your variables 
-    
-    e.preventDefault();
+
+    document.querySelector(".form").addEventListener("reset", function (e)) { 
+        e.preventDefault();
+    }
 
     let billInput = document.querySelector(".bill");
     let selectTipInput = document.querySelector(".tip");
