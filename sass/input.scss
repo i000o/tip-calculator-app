@@ -1,6 +1,15 @@
 @use 'reset';
 @use 'footer'; 
-
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+  }
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body { 
@@ -40,22 +49,22 @@ h2 {
     margin: 20px 0;
 }
 
-input[type="bill-number"], input[type="people-number"] { 
+input[type="text"] { // you've made up your own input types, how? 
     background-color: hsl(185, 41%, 84%, 30%);
     border-radius: 5px;
     border: none;
-    padding: 10px 0;
+    padding: 10px 30px;
     width: 100%;
     background-size: 12px;
 }
 
-input[type="bill-number"] { 
+.bill { // you've made up your own input types, how? 
     background-image: url(../images/icon-dollar.svg);
     background-position: left 10px center;
     background-repeat: no-repeat;
 }
 
-input[type="people-number"] { 
+.people { // you've made up your own input types, how? 
     background-image: url(../images/icon-person.svg);
     background-position: left 10px center;
     background-repeat: no-repeat;
@@ -68,7 +77,7 @@ input[type="people-number"] {
 }
 
 ol { 
-    display: inline-grid; 
+    display: grid; 
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 3; 
     gap: 10px;
@@ -77,7 +86,7 @@ ol {
     min-width: 100%;
 }
 
-ol li button { 
+li { 
     color: hsl(0, 100%, 100%);
     background-color: hsl(183, 100%, 15%);
     border-radius: 5px;
@@ -87,16 +96,16 @@ ol li button {
     width: 100%;
 }
 
-button { 
+input[type="radio"] { 
     font: inherit;
     border: none;
+    cursor: pointer;
 }
 
-button:active { 
+input[type="radio"]:active, input[type="radio"]:checked { 
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
-
 
 .custom { 
     background-color: hsl(189, 47%, 97%);
@@ -104,7 +113,7 @@ button:active {
     text-align: right;
 }
 
-.tip { 
+.totals { 
     background-color: hsl(183, 100%, 15%);
     border-radius: 12px;
     padding: 20px 30px;

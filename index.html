@@ -12,47 +12,41 @@
 <body>
   <img src="images/logo.svg" class="logo">
   <section class="card">
-    <form> 
+    <form class="form"> 
       <!-- divs for data fields? -->
-      <h1 class="bill">Bill</h1>
-      <input type="bill-number" class="bill"></input>
-      <label for="bill-number"></label>
+      <h1>Bill</h1>
+      <input type="text" class="bill" id="bill"></input>
+      <label for="bill"></label>
       <h2>Select Tip &percnt;</h2>
       <ol> 
-      <li> 
-        <button class="tip" type="radio">
-          5&percnt;
-        </button>
-      </li>
-      <li>
-        <button class="tip" type="radio">
-          10&percnt;
-        </button>
-      </li>
-      <li> 
-        <button class="tip" type="radio">
-          15&percnt;
-        </button>
-      </li>
-      <li> 
-        <button class="tip" type="radio">
-          25&percnt;
-        </button>
-      </li>
-      <li> 
-        <button class="tip" type="radio">
-          50&percnt;
-        </button>
-      </li>
-      <li>
-        <button class="custom" class="tip" type="radio">
-          Custom
-        </button>
-      </li>
+        <li> 
+          <input class="tip" type="radio" id="5" name="tip" value="5">5&percnt;</input>
+          <label for="5"></label>
+        </li>
+        <li>
+          <input class="tip" type="radio" id="10" name="tip" value="10">10&percnt;</input>
+          <label for="10"></label>
+        </li>
+        <li> 
+          <input class="tip" type="radio" id="15" name="tip" value="15">15&percnt;</input>
+          <label for="15"></label>
+        </li>
+        <li> 
+          <input class="tip" type="radio" id="25" name="tip" value="25">25&percnt;</input>
+          <label for="25"></label>
+        </li>
+        <li> 
+          <input class="tip" type="radio" id="50" name="tip" value="50">50&percnt;</input>
+          <label for="50"></label>
+        </li>
+        <li>
+          <input class="custom" class="tip" type="radio" id="custom" name="tip">Custom</input>
+          <label for="custom"></label>
+        </li>
       </ol>
       <h2>Number of People</h2>
-      <input type="people-number" class="people"></input>
-      <label for="people-number"></label>
+      <input type="text" class="people" id="people"></input>
+      <label for="people"></label>
       <div class="totals"> 
         <h2>Tip Amount</h2>
         <p>/ person</p>
@@ -60,7 +54,8 @@
         <h2>Total</h2>
         <p>/ person</p>
         <span class="total/person"></span>
-        <input type="reset" class="reset"></input>
+        <input type="reset" class="reset" id="reset" name="reset"></input>
+        <label for="reset"></label>
       </div>
     </form>
     <footer> 

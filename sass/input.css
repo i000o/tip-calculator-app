@@ -25,6 +25,18 @@ footer {
   font-size: 0.6em;
 }
 
+input[type=radio] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  font: inherit;
+}
+
 body {
   font-family: "space mono", sans-serif;
   display: flex;
@@ -61,22 +73,22 @@ h2 {
   margin: 20px 0;
 }
 
-input[type=bill-number], input[type=people-number] {
+input[type=text] {
   background-color: hsla(185, 41%, 84%, 0.3);
   border-radius: 5px;
   border: none;
-  padding: 10px 0;
+  padding: 10px 30px;
   width: 100%;
   background-size: 12px;
 }
 
-input[type=bill-number] {
+.bill {
   background-image: url(../images/icon-dollar.svg);
   background-position: left 10px center;
   background-repeat: no-repeat;
 }
 
-input[type=people-number] {
+.people {
   background-image: url(../images/icon-person.svg);
   background-position: left 10px center;
   background-repeat: no-repeat;
@@ -89,7 +101,7 @@ input[type=people-number] {
 }
 
 ol {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: 3;
   gap: 10px;
@@ -98,7 +110,7 @@ ol {
   min-width: 100%;
 }
 
-ol li button {
+li {
   color: hsl(0, 100%, 100%);
   background-color: hsl(183, 100%, 15%);
   border-radius: 5px;
@@ -108,12 +120,13 @@ ol li button {
   width: 100%;
 }
 
-button {
+input[type=radio] {
   font: inherit;
   border: none;
+  cursor: pointer;
 }
 
-button:active {
+input[type=radio]:active, input[type=radio]:checked {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
@@ -124,14 +137,14 @@ button:active {
   text-align: right;
 }
 
-.tip {
+.totals {
   background-color: hsl(183, 100%, 15%);
   border-radius: 12px;
   padding: 20px 30px;
   margin: 25px 0;
   height: auto;
 }
-.tip h2 {
+.totals h2 {
   color: hsl(0, 100%, 100%);
 }
 
