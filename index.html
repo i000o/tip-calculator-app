@@ -5,48 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" src="sass/output.css"> <!-- check-->
-  <script rel="script" src="js/script.js"></script> <!-- check-->
+  <link rel="stylesheet" href="sass/output.css"> <!-- check-->
+  <script src="js/script.js"></script> <!-- check-->
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
 <body>
+  <img src="images/logo.svg" class="logo">
   <section class="card">
-    <img src="images/logo.svg" class="logo">
-    <h1 class="bill">Bill</h1>
-    <h2>Select Tip &percnt;</h2>
-    <ol> 
+    <form> 
+      <!-- divs for data fields? -->
+      <h1 class="bill">Bill</h1>
+      <input type="bill-number" class="bill"></input>
+      <label for="bill-number"></label>
+      <h2>Select Tip &percnt;</h2>
+      <ol> 
       <li> 
-        5&percnt;
+        <button>
+          5&percnt;
+        </button>
       </li>
       <li>
-        10&percnt;
+        <button>
+          10&percnt;
+        </button>
       </li>
       <li> 
-        15&percnt;
+        <button>
+          15&percnt;
+        </button>
       </li>
       <li> 
-        25&percnt;
+        <button>
+          25&percnt;
+        </button>
       </li>
       <li> 
-        50&percnt;
+        <button>
+          50&percnt;
+        </button>
       </li>
       <li>
-        Custom
+        <button class="custom">
+          Custom
+        </button>
       </li>
-    </ol>
-    <h2>Number of People</h2>
-    <div> 
-      <h2>Tip Amount</h2>
-      <p>/ person</p>
-      <h2>Total</h2>
-      <p>/ person</p>
-      <button>Reset</button>
-    </div>
+      </ol>
+      <h2>Number of People</h2>
+      <input type="people-number"></input>
+      <label for="people-number"></label>
+      <div class="tip"> 
+        <h2>Tip Amount</h2>
+        <p>/ person</p>
+        <h2>Total</h2>
+        <p>/ person</p>
+        <input type="reset" class="reset"></input>
+      </div>
+    </form>
+    <footer> 
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Iman Osman</a>.
+    </footer>
   </section>
 
-  <footer> 
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Iman Osman</a>.
-  </footer>
 </body>
 </html>

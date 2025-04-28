@@ -127,7 +127,7 @@ button:active {
 .tip {
   background-color: hsl(183, 100%, 15%);
   border-radius: 12px;
-  padding: 20px;
+  padding: 20px 30px;
   margin: 25px 0;
   height: auto;
 }
