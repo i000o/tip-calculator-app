@@ -20,44 +20,46 @@
       <h2>Select Tip &percnt;</h2>
       <ol> 
       <li> 
-        <button>
+        <button class="tip">
           5&percnt;
         </button>
       </li>
       <li>
-        <button>
+        <button class="tip">
           10&percnt;
         </button>
       </li>
       <li> 
-        <button>
+        <button class="tip">
           15&percnt;
         </button>
       </li>
       <li> 
-        <button>
+        <button class="tip">
           25&percnt;
         </button>
       </li>
       <li> 
-        <button>
+        <button class="tip">
           50&percnt;
         </button>
       </li>
       <li>
-        <button class="custom">
+        <button class="custom" class="tip">
           Custom
         </button>
       </li>
       </ol>
       <h2>Number of People</h2>
-      <input type="people-number"></input>
+      <input type="people-number" class="people"></input>
       <label for="people-number"></label>
-      <div class="tip"> 
+      <div class="totals"> 
         <h2>Tip Amount</h2>
         <p>/ person</p>
+        <span class="tip-amount"></span>
         <h2>Total</h2>
         <p>/ person</p>
+        <span class="total/person"></span>
         <input type="reset" class="reset"></input>
       </div>
     </form>
