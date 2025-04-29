@@ -12,6 +12,9 @@ input[type="radio"] {
   }
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+
+// MOBILE 
+
 body { 
     font-family: 'space mono', sans-serif;
     display: flex; 
@@ -70,10 +73,10 @@ input[type="text"] {
     background-repeat: no-repeat;
 }
 
-ol { 
+ol {
     display: grid; 
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 3; 
+    grid-template-rows: repeat(3, auto); // this was just 3 before, invalid 
     gap: 10px;
     margin: 10px 0;
     padding: 0;
@@ -90,22 +93,25 @@ li {
     width: 100%;
 }
 
-/* active states occur on 
+/* ACTIVE STATES occur on 
 1. bill input field (cyan border) 
 2. :checked radio input buttons
 3. custom entry 
 4. reset button 
 */
 
-/* there is an invalid state on no. of people input */ 
+/* INVALID STATE on no. of people input */ 
+
+li label { 
+    cursor: pointer;
+}
 
 input[type="radio"] { 
     font: inherit;
     border: none;
-    cursor: pointer;
 }
 
-input[type="radio"]:active, input[type="radio"]:checked { 
+input[type="radio"]:checked { 
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
@@ -116,7 +122,7 @@ input[type="radio"]:active, input[type="radio"]:checked {
     text-align: right;
 }
 
-.totals { 
+.totals { // div 
     background-color: hsl(183, 100%, 15%);
     border-radius: 12px;
     padding: 20px 30px;
@@ -149,7 +155,6 @@ p {
 }
 
 footer { 
-    // display: inline-block;
     margin: 20px 0;
     color: hsl(186, 14%, 43%);
     text-align: center;

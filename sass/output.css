@@ -96,7 +96,7 @@ input[type=text] {
 ol {
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  grid-template-rows: 3;
+  grid-template-rows: repeat(3, auto);
   gap: 10px;
   margin: 10px 0;
   padding: 0;
@@ -113,20 +113,23 @@ li {
   width: 100%;
 }
 
-/* active states occur on 
+/* ACTIVE STATES occur on 
 1. bill input field (cyan border) 
 2. :checked radio input buttons
 3. custom entry 
 4. reset button 
 */
-/* there is an invalid state on no. of people input */
-input[type=radio] {
-  font: inherit;
-  border: none;
+/* INVALID STATE on no. of people input */
+li label {
   cursor: pointer;
 }
 
-input[type=radio]:active, input[type=radio]:checked {
+input[type=radio] {
+  font: inherit;
+  border: none;
+}
+
+input[type=radio]:checked {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
