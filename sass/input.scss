@@ -111,7 +111,7 @@ input[type="radio"] {
     border: none;
 }
 
-input[type="radio"]:checked { 
+input[type="radio"]:checked { // what's the significance of + label? 
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
