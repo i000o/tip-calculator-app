@@ -20,30 +20,36 @@
       <h2>Select Tip &percnt;</h2>
       <ol> 
         <li> 
-          <input class="tip" type="radio" id="tip5" name="tip" value="5"></input>
-          <label for="tip5">5&percnt;</label>
+          <label>5&percnt;
+            <input class="tip" type="radio" name="tip" value="5"></input> <!-- wrapping input in label causes the font to move to the left, idky -->
+          </label>
         </li>
         <li>
-          <input class="tip" type="radio" id="tip10" name="tip" value="10"></input>
-          <label for="tip10">10&percnt;</label>
+          <label>10&percnt;
+            <input class="tip" type="radio" name="tip" value="10"></input>
+          </label>
         </li>
         <li> 
-          <input class="tip" type="radio" id="tip15" name="tip" value="15"></input>
-          <label for="tip15">15&percnt;</label>
+          <label>15&percnt;
+            <input class="tip" type="radio" name="tip" value="15"></input>
+          </label>
         </li>
         <li> 
-          <input class="tip" type="radio" id="tip25" name="tip" value="25"></input>
-          <label for="tip25">25&percnt;</label>
+          <label>25&percnt;
+            <input class="tip" type="radio" name="tip" value="25"></input>
+          </label>
         </li>
         <li> 
-          <input class="tip" type="radio" id="tip50" name="tip" value="50"></input>
-          <label for="tip50">50&percnt;</label>
+          <label>50&percnt;
+            <input class="tip" type="radio" name="tip" value="50"></input> 
+          </label>
         </li>
         <li>
-          <input class="custom" class="tip" type="radio" id="custom" name="tip"></input> <!-- yes, we have two classes on this one -->
-          <label for="custom">Custom</label>
+          <input class="custom tip" type="radio" name="tip"></input> <!-- yes, we have two classes on this one -->
+          <label>Custom</label>
         </li>
       </ol>
+      
       <h2>Number of People</h2>
       <input type="text" class="people" id="people"></input> <!-- input type is text-->
       <label for="people"></label>
