@@ -49,7 +49,7 @@ h2 {
     margin: 20px 0;
 }
 
-input[type="text"] { // you've made up your own input types, how? 
+input[type="text"] { 
     background-color: hsl(185, 41%, 84%, 30%);
     border-radius: 5px;
     border: none;
@@ -58,22 +58,16 @@ input[type="text"] { // you've made up your own input types, how?
     background-size: 12px;
 }
 
-.bill { // you've made up your own input types, how? 
+.bill { 
     background-image: url(../images/icon-dollar.svg);
     background-position: left 10px center;
     background-repeat: no-repeat;
 }
 
-.people { // you've made up your own input types, how? 
+.people {  
     background-image: url(../images/icon-person.svg);
     background-position: left 10px center;
     background-repeat: no-repeat;
-}
-
-.grid-flex { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 ol { 
