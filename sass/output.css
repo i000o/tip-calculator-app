@@ -113,6 +113,13 @@ li {
   width: 100%;
 }
 
+/* active states occur on 
+1. bill input field (cyan border) 
+2. :checked radio input buttons
+3. custom entry 
+4. reset button 
+*/
+/* there is an invalid state on no. of people input */
 input[type=radio] {
   font: inherit;
   border: none;
