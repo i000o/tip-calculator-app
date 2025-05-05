@@ -11,12 +11,31 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
     let numberOfPeopleInput = document.querySelector(".people"); // no. of people text field input 
     let tipAmountPerPerson = document.querySelector(".tip-amount"); // show tip amount span
     let totalPerPerson = document.querySelector(".total-per-person"); // show total bill per person span
+    let form = document.querySelector(".form");
+    // let error = "Please enter a valid amount"
 
     // I need something to affirm that the input in bill field is indeed, a number to two decimals. 
     // I need something to affirm that the input in no. of people field is indeed, a number to one whole integer. 
 
     function calculateTip() { 
-        // converts entered values from stirngs into numbers 
+
+        // if (billInput.validity.valueMissing) { 
+        //     billInput.setCustomValidity("Please enter a valid bill amount"); 
+        //     billInput.textContent = "Please enter a valid bill amount"; 
+        //     error.classList.add("visible");
+        // }
+        // else if billInput.validity.typeMismatch { 
+        //     billInput.setCustomValidity("Please enter a valid bill amount"); 
+        //     error.textContent = "Please enter a valid bill amount";
+        //     error.classList.add("visible");
+        // }
+        // else { 
+        //     billInput.setCustomValidity(""); 
+        //     error.classList.remove("visible"); 
+        //     billInput.value = ""; 
+        // }
+
+        // converts entered values from strings into numbers 
 
         let bill = parseFloat(billInput.value); // this retrieves the value entered in the Bill field and stores it in the variable 'bill' 
         let tipPercentage = parseFloat(selectTipInput.value); // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
