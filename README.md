@@ -32,6 +32,13 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 :gear: Sass  
 :gear: JavaScript
 
+## To-do
+
+- Fix `<ol>` overspilling on right side of container
+- Use JS to style checked states on radio buttons - can't do it with CSS
+- Do more JS on the tip calculator
+- Finalise mobile
+
 ## Process
 
 - Techniques necessary: DOM Manipulation & Event Handling
