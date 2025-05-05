@@ -33,4 +33,4 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
         totalPerPerson.textContent = ${totalPerPerson.toFixed(2)};
         // toFixed is a method to convert the number value to a fixed decimal point with the number of places defined in the brackets e.g. `(2)`.
     }
-}))
+})
