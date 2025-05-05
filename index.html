@@ -15,7 +15,7 @@
     <form class="form"> 
       <!-- divs for data fields? -->
       <h1>Bill</h1>
-      <input type="number" class="bill" id="bill" required></input> 
+      <input type="number" class="bill" id="bill" required min="0"></input> 
       <label for="bill"></label>
       <h2>Select Tip &percnt;</h2>
       <ol> 
@@ -51,7 +51,7 @@
       </ol>
       
       <h2>Number of People</h2>
-      <input type="number" class="people" id="people" required></input> <!-- input type is text-->
+      <input type="number" class="people" id="people" required min="1"></input> <!-- input type is text-->
       <label for="people"></label>
       <div class="totals"> 
         <h2>Tip Amount</h2>
