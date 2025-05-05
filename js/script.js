@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
         e.preventDefault();
     }
 
-    let billInput = document.querySelector(".bill");
-    let selectTipInput = document.querySelector(".tip");
-    let numberOfPeopleInput = document.querySelector(".people");
-    let tipAmountPerPerson = document.querySelector(".tip-amount"); 
-    let totalPerPerson = document.querySelector(".total/person"); 
+    let billInput = document.querySelector(".bill"); // bill total input
+    let selectTipInput = document.querySelector(".tip"); // select tip % radio button input 
+    let numberOfPeopleInput = document.querySelector(".people"); // no. of people text field input 
+    let tipAmountPerPerson = document.querySelector(".tip-amount"); // show tip amount span
+    let totalPerPerson = document.querySelector(".total-per-person"); // show total bill per person span
 
     function calculateTip() { 
         // converts entered values from stirngs into numbers 
@@ -28,6 +28,5 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
 
         tipAmountPerPerson.textContent = ${tipAmountPerPerson.toFixed(2)}; 
         totalPerPerson.textContent = ${totalPerPerson.toFixed(2)};
-
     }
 }))
