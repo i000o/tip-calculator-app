@@ -73,24 +73,32 @@ input[type="text"] {
     background-repeat: no-repeat;
 }
 
-ol {
+ol { // grid is overspilling on the right 
     display: grid; 
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(3, auto); // this was just 3 before, invalid 
     gap: 10px;
-    margin: 10px 0;
+    // margin: 10px 10px 10px 0;
     padding: 0;
-    min-width: 100%;
+    // min-width: 100%;
 }
 
 li { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+ol li label { 
+    // flex: 1;
+    padding: 8px 35px;
     color: hsl(0, 100%, 100%);
     background-color: hsl(183, 100%, 15%);
     border-radius: 5px;
-    padding: 8px 35px;
-    text-align: center;
     font-size: 1.3em;
     width: 100%;
+
 }
 
 /* ACTIVE STATES occur on 
@@ -106,15 +114,15 @@ li label {
     cursor: pointer;
 }
 
-input[type="radio"] { 
-    font: inherit;
-    border: none;
-}
+// input[type="radio"] { 
+//     font: inherit;
+//     border: none;
+// }
 
-input[type="radio"]:checked { // what's the significance of + label? 
-    background-color: hsl(172, 67%, 45%);
-    color: hsl(183, 100%, 15%);
-}
+// input[type="radio"]:checked { // what's the significance of + label? 
+//     background-color: hsl(172, 67%, 45%);
+//     color: hsl(183, 100%, 15%);
+// }
 
 .custom { 
     background-color: hsl(189, 47%, 97%);
@@ -152,6 +160,7 @@ p {
     border: none;
     font-size: 0.9em;
     min-width: 100%;
+    cursor: pointer;
 }
 
 footer { 
