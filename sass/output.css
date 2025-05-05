@@ -36,6 +36,18 @@ input[type=radio] {
   font: inherit;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   font-family: "space mono", sans-serif;
   display: flex;
@@ -72,7 +84,7 @@ h2 {
   margin: 20px 0;
 }
 
-input[type=text] {
+input[type=number] {
   background-color: hsla(185, 41%, 84%, 0.3);
   border-radius: 5px;
   border: none;
