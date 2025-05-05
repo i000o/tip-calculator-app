@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
     let tipAmountPerPerson = document.querySelector(".tip-amount"); // show tip amount span
     let totalPerPerson = document.querySelector(".total-per-person"); // show total bill per person span
 
+    // I need something to affirm that the input in bill field is indeed, a number to two decimals. 
+    // I need something to affirm that the input in no. of people field is indeed, a number to one whole integer. 
+
     function calculateTip() { 
         // converts entered values from stirngs into numbers 
 
@@ -28,5 +31,6 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
 
         tipAmountPerPerson.textContent = ${tipAmountPerPerson.toFixed(2)}; 
         totalPerPerson.textContent = ${totalPerPerson.toFixed(2)};
+        // toFixed is a method to convert the number value to a fixed decimal point with the number of places defined in the brackets e.g. `(2)`.
     }
 }))
