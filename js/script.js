@@ -19,22 +19,6 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
 
     function calculateTip() { 
 
-        // if (billInput.validity.valueMissing) { 
-        //     billInput.setCustomValidity("Please enter a valid bill amount"); 
-        //     billInput.textContent = "Please enter a valid bill amount"; 
-        //     error.classList.add("visible");
-        // }
-        // else if billInput.validity.typeMismatch { 
-        //     billInput.setCustomValidity("Please enter a valid bill amount"); 
-        //     error.textContent = "Please enter a valid bill amount";
-        //     error.classList.add("visible");
-        // }
-        // else { 
-        //     billInput.setCustomValidity(""); 
-        //     error.classList.remove("visible"); 
-        //     billInput.value = ""; 
-        // }
-
         // converts entered values from strings into numbers 
 
         let bill = parseFloat(billInput.value); // this retrieves the value entered in the Bill field and stores it in the variable 'bill' 
