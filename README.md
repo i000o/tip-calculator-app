@@ -48,6 +48,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 3. The `.toFixed()` method asks Javascript to convert the number value to a fixed decimal point with the number of places defined in the brackets e.g. `(2)`.
 4. `+` is an adjacent sibling combintaor selector in CSS, it targets an element directly following, but not nested in the previous. They are siblings, not children.
 5. Because here, my `<input>'s` are nested inside `<label>`, the `+` combinator won't work since they aren't siblings. Instead, I have to use JS to style the checked states. I hadn't done this before.
+6. I created my first testing branch and merged with main :slightly_smiling_face:. I used git commands, `git checkout -b gridflex-testing`, `git push -u origin gridflex-testing` and `git checkout` and `git merge`.
 
 ## Development
 
