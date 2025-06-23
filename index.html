@@ -18,30 +18,29 @@
       <input type="number" class="bill" id="bill" required min="0"></input> 
       <label for="bill"></label>
       <fieldset> 
-        <legend>Select Tip &percnt;</legend>
-        <label>5&percnt;
-          <input class="tip" type="radio" name="tip" value="5"></input> 
+        <legend class="select-tip">Select Tip &percnt;</legend>
+        <label class="tip">5&percnt; 
+          <input type="radio" name="tip" value="5"></input> 
         </label>
-        <label>10&percnt;
-          <input class="tip" type="radio" name="tip" value="10"></input>
+        <label class="tip">10&percnt;
+          <input type="radio" name="tip" value="10"></input>
         </label>
-        <label>15&percnt;
-          <input class="tip" type="radio" name="tip" value="15"></input>
+        <label class="tip">15&percnt;
+          <input type="radio" name="tip" value="15"></input>
         </label>
-        <label>25&percnt;
-          <input class="tip" type="radio" name="tip" value="25"></input>
+        <label class="tip">25&percnt;
+          <input type="radio" name="tip" value="25"></input>
         </label>
-        <label>50&percnt;
-          <input class="tip" type="radio" name="tip" value="50"></input> 
+        <label class="tip">50&percnt;
+          <input type="radio" name="tip" value="50"></input> 
         </label>
-        <label>Custom
-          <input class="custom tip" type="radio" name="tip" value="custom"></input> <!-- yes, we have two classes on this one. This input needs to have a radio input too, which triggers the text input and auto-focuses when selected !--> 
+        <label class="custom">Custom
+          <input type="radio" name="tip" value="custom" class="custom"></input> <!-- This input needs to have a radio input too, which triggers the text input and auto-focuses when selected !--> 
         </label>
       </fieldset>
-
       
       <h2>Number of People</h2>
-      <input type="number" class="people" id="people" required min="1"></input> <!-- input type is text-->
+      <input type="number" class="people" id="people" required min="1"></input> <!-- input type is text | Is it?-->
       <label for="people"></label>
       <div class="totals"> 
         <h2>Tip Amount</h2>

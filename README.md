@@ -56,6 +56,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 4. `+` is an adjacent sibling combintaor selector in CSS, it targets an element directly following, but not nested in the previous. They are siblings, not children.
 5. Because here, my `<input>`'s are nested inside `<label>`, the `+` combinator won't work since they aren't siblings. Instead, I have to use JS to style the checked states. I hadn't done this before.
 6. I created my first testing branch and merged with main :slightly_smiling_face:. I used git commands, `git checkout -b gridflex-testing`, `git push -u origin gridflex-testing` and `git checkout` and `git merge`.
+7. When using `:focus`, use `outline` not `border` to style.
 
 ## Development
 

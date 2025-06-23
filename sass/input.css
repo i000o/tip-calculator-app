@@ -57,7 +57,6 @@ body {
   align-items: center;
   text-align: left;
   background-color: hsl(185, 41%, 84%);
-  height: 100svh;
   font-weight: 700;
   margin: 0;
 }
@@ -73,15 +72,15 @@ body {
   border-top-right-radius: 16px;
   padding: 20px 30px;
   min-width: 24em;
-  height: 80svh;
+  height: auto;
 }
 
-h1, legend {
+h1, h2, .select-tip {
   font-size: 0.9em;
   color: hsl(186, 14%, 43%);
 }
 
-legend {
+h2, .select-tip {
   margin: 20px 0;
 }
 
@@ -92,12 +91,30 @@ input[type=number] {
   padding: 10px 30px;
   width: 100%;
   background-size: 12px;
+  color: hsl(183, 100%, 15%);
+  text-align: right;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
+}
+
+input[type=number]:focus {
+  outline: solid 2px hsl(172, 67%, 45%);
+}
+
+input[type=number]:hover {
+  outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
 .bill {
   background-image: url(../images/icon-dollar.svg);
   background-position: left 10px center;
   background-repeat: no-repeat;
+}
+
+.select-tip {
+  text-align: left;
+  display: block;
 }
 
 .people {
@@ -111,23 +128,31 @@ fieldset {
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, auto);
   gap: 10px;
+  margin: 10px 10px 10px 0;
   padding: 0;
+  border: none;
 }
 
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-
-ol li label {
-  padding: 8px 35px;
+.tip {
+  padding: 8px 35px 8px 50px;
   color: hsl(0, 100%, 100%);
   background-color: hsl(183, 100%, 15%);
   border-radius: 5px;
-  font-size: 1.3em;
+  font-size: 1.4em;
   width: 100%;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tip:hover {
+  background-color: hsla(172, 67%, 45%, 0.6);
+  color: hsl(183, 100%, 15%);
+}
+
+.tip:checked {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
 }
 
 /* ACTIVE STATES occur on 
@@ -137,14 +162,22 @@ ol li label {
 4. reset button 
 */
 /* INVALID STATE on no. of people input */
-li label {
-  cursor: pointer;
-}
-
 .custom {
   background-color: hsl(189, 47%, 97%);
+  cursor: text;
+  padding: 8px 0;
+  border-radius: 5px;
   color: hsl(186, 14%, 43%);
+  font-size: 1.4em;
   text-align: right;
+}
+
+.custom:focus {
+  outline: solid 2px hsl(172, 67%, 45%);
+}
+
+.custom:hover {
+  outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
 .totals {
@@ -154,7 +187,7 @@ li label {
   margin: 25px 0;
   height: auto;
 }
-.totals legend {
+.totals h2 {
   color: hsl(0, 100%, 100%);
 }
 
@@ -177,6 +210,10 @@ p {
   font-size: 0.9em;
   min-width: 100%;
   cursor: pointer;
+}
+
+.reset:hover {
+  background-color: hsl(172, 67%, 45%);
 }
 
 footer {
