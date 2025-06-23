@@ -12,43 +12,33 @@
 <body>
   <img src="images/logo.svg" class="logo">
   <section class="card">
-    <form class="form"> 
+    <form class="form"> <!-- use <fieldset>? -->
       <!-- divs for data fields? -->
       <h1>Bill</h1>
       <input type="number" class="bill" id="bill" required min="0"></input> 
       <label for="bill"></label>
-      <h2>Select Tip &percnt;</h2>
-      <ol> 
-        <li> 
-          <label>5&percnt;
-            <input class="tip" type="radio" name="tip" value="5"></input> 
-          </label>
-        </li>
-        <li>
-          <label>10&percnt;
-            <input class="tip" type="radio" name="tip" value="10"></input>
-          </label>
-        </li>
-        <li> 
-          <label>15&percnt;
-            <input class="tip" type="radio" name="tip" value="15"></input>
-          </label>
-        </li>
-        <li> 
-          <label>25&percnt;
-            <input class="tip" type="radio" name="tip" value="25"></input>
-          </label>
-        </li>
-        <li> 
-          <label>50&percnt;
-            <input class="tip" type="radio" name="tip" value="50"></input> 
-          </label>
-        </li>
-        <li>
-          <input class="custom tip" type="radio" name="tip" value="custom"></input> <!-- yes, we have two classes on this one -->
-          <label>Custom</label>
-        </li>
-      </ol>
+      <fieldset> 
+        <legend>Select Tip &percnt;</legend>
+        <label>5&percnt;
+          <input class="tip" type="radio" name="tip" value="5"></input> 
+        </label>
+        <label>10&percnt;
+          <input class="tip" type="radio" name="tip" value="10"></input>
+        </label>
+        <label>15&percnt;
+          <input class="tip" type="radio" name="tip" value="15"></input>
+        </label>
+        <label>25&percnt;
+          <input class="tip" type="radio" name="tip" value="25"></input>
+        </label>
+        <label>50&percnt;
+          <input class="tip" type="radio" name="tip" value="50"></input> 
+        </label>
+        <label>Custom
+          <input class="custom tip" type="radio" name="tip" value="custom"></input> <!-- yes, we have two classes on this one. This input needs to have a radio input too, which triggers the text input and auto-focuses when selected !--> 
+        </label>
+      </fieldset>
+
       
       <h2>Number of People</h2>
       <input type="number" class="people" id="people" required min="1"></input> <!-- input type is text-->

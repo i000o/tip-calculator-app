@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", () => { // wait til DOM is fully l
     let form = document.querySelector(".form");
     // let error = "Please enter a valid amount"
 
-    // I need something to affirm that the input in bill field is indeed, a number to two decimals. 
-    // I need something to affirm that the input in no. of people field is indeed, a number to one whole integer. 
+    // Here you need a submit listener 
+    // Here you need a reset listener 
+
+    // I need something to affirm that the input in bill field is a number to two decimals. 
+    // I need something to affirm that the input in no. of people field is a number to one whole integer. 
 
     function calculateTip() { 
 

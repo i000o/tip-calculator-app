@@ -76,12 +76,12 @@ body {
   height: 80svh;
 }
 
-h1, h2 {
+h1, legend {
   font-size: 0.9em;
   color: hsl(186, 14%, 43%);
 }
 
-h2 {
+legend {
   margin: 20px 0;
 }
 
@@ -106,7 +106,7 @@ input[type=number] {
   background-repeat: no-repeat;
 }
 
-ol {
+fieldset {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, auto);
@@ -154,7 +154,7 @@ li label {
   margin: 25px 0;
   height: auto;
 }
-.totals h2 {
+.totals legend {
   color: hsl(0, 100%, 100%);
 }
 
