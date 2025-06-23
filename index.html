@@ -12,7 +12,7 @@
 <body>
   <img src="images/logo.svg" class="logo">
   <section class="card">
-    <form class="form"> <!-- use <fieldset>? -->
+    <div class="form"> <!-- use changed form to div for JS --> 
       <!-- divs for data fields? -->
       <h1>Bill</h1>
       <input type="number" class="bill" id="bill" required min="0"></input> 
@@ -40,8 +40,10 @@
       </fieldset>
       
       <h2>Number of People</h2>
-      <input type="number" class="people" id="people" required min="1"></input> <!-- input type is text | Is it?-->
-      <label for="people"></label>
+      <label for="people">
+        <input type="number" class="people" id="people" required min="1"></input>
+      </label>
+      <span class="people-error"></span> <!-- for error state -->
       <div class="totals"> 
         <h2>Tip Amount</h2>
         <p>/ person</p>
@@ -49,10 +51,11 @@
         <h2>Total</h2>
         <p>/ person</p>
         <span class="total-per-person"></span>
-        <input type="reset" class="reset" id="reset" name="reset"></input>
-        <label for="reset"></label>
+        <input type="reset" class="reset" id="reset" name="reset"></input> <!-- type should be button, why? -->
+        <label for="reset">
+        </label>
       </div>
-    </form>
+    </div>
     <footer> 
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Iman Osman</a>.
     </footer>

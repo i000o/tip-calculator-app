@@ -154,12 +154,6 @@ fieldset {
   color: hsl(183, 100%, 15%);
 }
 
-/* ACTIVE STATES occur on 
-1. bill input field (cyan border) 
-2. :checked radio input buttons
-3. custom entry 
-4. reset button 
-*/
 /* INVALID STATE on no. of people input */
 .custom {
   background-color: hsl(189, 47%, 97%);
@@ -212,7 +206,7 @@ p {
 }
 
 .reset:hover {
-  background-color: hsl(172, 67%, 45%);
+  background-color: hsla(172, 67%, 45%, 0.6);
 }
 
 footer {

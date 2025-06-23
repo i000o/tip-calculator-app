@@ -57,6 +57,9 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 5. Because here, my `<input>`'s are nested inside `<label>`, the `+` combinator won't work since they aren't siblings. Instead, I have to use JS to style the checked states. I hadn't done this before.
 6. I created my first testing branch and merged with main :slightly_smiling_face:. I used git commands, `git checkout -b gridflex-testing`, `git push -u origin gridflex-testing` and `git checkout` and `git merge`.
 7. When using `:focus`, use `outline` not `border` to style.
+8. You don't need `e.preventDefault();` in your JS when there's no submit in the form.
+9. A floating number in JS is a fractional number, not an integer. In this case, we use `parseFloat` for decimal numbers and `parseInt` for whole numbers.
+10. _Parsing_ - In JavaScript, input fields are read as strings e.g. `"12"` instead of `12`. Therefore, this data needs to be converted into the correct type so that it can be used. In this case, we need to parse number strings into number values so they can be used in the tip calculation.
 
 ## Development
 
