@@ -21,30 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
     let tipPercentage = parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-
-
     function errorMessage() { // where should this be called? 
         if (numberOfPeople === 0) { 
             error.style.display = "block"; 
         }
     }
-
     let customValue = parseFloat(customTip.value) || 0; 
 
 
     // CALCULATE TIP WITH THOSE VALUES 
     let tipValue = billValue * (tipPercentage / 100);
-    let tipAmountPerPerson = tipValue / numberOfPeople; 
-    let totalPerPerson = (tipValue + billValue) / numberOfPeople; 
+    let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
+    let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing 
 
     // UPDATE THE TOTALS AND SHOW 
-
-    tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); 
-    totalPerPerson.textContent = '$' + totalPerPerson.toFixed(2);
+    tipAmountValue.textContent = '$' + tipAmountValue.toFixed(2); 
+    totalValue.textContent = '$' + totalPerPerson.toFixed(2);
     }
 
     // 2) RESET 
-
     function reset() { 
         billInput.value = ""; 
         tipInput.value = ""; 
@@ -54,11 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // EVENT LISTENERS 
-
-    // RESET BUTTON EVENT HANDLER FOR RESET BUTTON TO EMPTY FIELDS 
     resetButton.addEventListener("click", reset);  
     billInput.addEventListener("input", calculateTip); 
     tipInput.addEventListener("input", calculateTip);
     numberOfPeopleInput.addEventListener("input", calculateTip);
     // error listener here? 
+    numberOfPeopleInput.addEventListener("input", errorMessage); // scope invisible ?
 });
