@@ -37,12 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tipAmountPerPerson = tipValue / numberOfPeople; 
     let totalPerPerson = (tipValue + billValue) / numberOfPeople; 
 
-    // remember to use .toFixed(2) Where does this go? 
-
-    tipAmountPerPerson.style.display = ''; // added display: none; in CSS for x2 spans 
-    totalPerPerson.style.display = ''; 
-    // replace the above 2 lines with the below 
-
+    // UPDATE THE TOTALS AND SHOW 
 
     tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); 
     totalPerPerson.textContent = '$' + totalPerPerson.toFixed(2);
