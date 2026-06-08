@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // DEFINE VARIABLES 
 
     const billInput = document.querySelector(".bill"); // bill total input
-    const tipInput = document.querySelectorAll(".tip"); // select tip % radio input 
+    const tipInputs = document.querySelectorAll(".tip"); // select tip % radio input 
     const numberOfPeopleInput = document.querySelector(".people"); // no. of people input 
     const tipAmountPerPerson = document.querySelector(".tip-amount"); // show tip amount span 
     const totalPerPerson = document.querySelector(".total-per-person"); // show total bill per person span
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CALCULATE TIP WITH THOSE VALUES 
     let tipValue = billValue * (tipPercentage / 100);
     let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
-    let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing 
+    let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing  
 
     // UPDATE THE TOTALS AND SHOW 
     tipAmountValue.textContent = '$' + tipAmountValue.toFixed(2); 
@@ -42,17 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2) RESET 
     function reset() { 
         billInput.value = ""; 
-        tipInput.value = ""; 
+        tipInputs.value = ""; 
         numberOfPeopleInput.value = ""; 
-        tipInput.value = false; 
+        tipInputs.value = false; 
     }
 
 
     // EVENT LISTENERS 
     resetButton.addEventListener("click", reset);  
     billInput.addEventListener("input", calculateTip); 
-    tipInput.addEventListener("input", calculateTip);
     numberOfPeopleInput.addEventListener("input", calculateTip);
     // error listener here? 
     numberOfPeopleInput.addEventListener("input", errorMessage); // scope invisible ?
+    tipInputs.forEach(tip => { 
+        tip.addEventListener("change", calculateTip); 
+    });
 });
