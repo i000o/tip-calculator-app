@@ -197,6 +197,10 @@ p {
     background-color: hsl(172, 67%, 45%, 60%); // not working 
 }
 
+.total-per-person, tip-amount { 
+    display: none; 
+}
+
 footer { 
     margin: 20px 0;
     color: hsl(186, 14%, 43%);

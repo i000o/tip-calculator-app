@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
     let tipPercentage = parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-    // let customTip = 
-
-    // we want a condition where all 3 fields need to be entered before the calculation is done 
+    let customValue = parseFloat(customTip) || 0; 
 
     // CALCULATE TIP WITH THOSE VALUES 
     let tipValue = billValue * (tipPercentage / 100);
@@ -35,15 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // update DOM to show spans for tipAmountPerPerson and totalPerPerson  
     // remember to use .toFixed(2) 
 
+    tipAmountPerPerson.style.display = ''; // added display: none; in CSS for x2 spans 
+    totalPerPerson.style.display = ''; 
+
     }
 
     // 2) RESET 
 
     function reset() { 
-        billInput.value = ""; // check why it's value and not .textContent
-        tipInput.value = ""; 
-        numberOfPeopleInput.value = ""; 
-        tipInput.checked = false; 
+        billInput.textContent = ""; // is it .value or .textContent? 
+        tipInput.textContent = ""; 
+        numberOfPeopleInput.textContent = ""; 
+        tipInput.textContent = false; 
     }
 
     function errorMessage() { // where should this be called? 
