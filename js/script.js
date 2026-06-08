@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // CONVERT STRING INPUTS INTO USABLE VALUES 
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-    let tipPercentage = parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
+    let tipPercentage = parseFloat(tipInputs.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
     function errorMessage() { // where should this be called? 
         if (numberOfPeople === 0) { 
@@ -34,9 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
     let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing  
 
+    console.log(tipAmountValue, totalValue);
+
     // UPDATE THE TOTALS AND SHOW 
     tipAmountValue.textContent = '$' + tipAmountValue.toFixed(2); 
-    totalValue.textContent = '$' + totalPerPerson.toFixed(2);
+    totalValue.textContent = '$' + totalValue.toFixed(2);
     }
 
     // 2) RESET 
@@ -58,3 +60,5 @@ document.addEventListener("DOMContentLoaded", () => {
         tip.addEventListener("change", calculateTip); 
     });
 });
+
+// FIX TIPINPUTS > Retrives a NodeList which you can't use value on 

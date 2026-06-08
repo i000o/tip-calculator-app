@@ -62,6 +62,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 10. _Parsing_ - In JavaScript, input fields are read as strings e.g. `"12"` instead of `12`. Therefore, this data needs to be converted into the correct type so that it can be used. In this case, we need to parse number strings into number values so they can be used in the tip calculation.
 11. `.tip:has(input:checked) { // was only .tip:checked before and didn't work `
 12. On reset function, // is it .value or .textContent? Value for inputs, textContent for elements that display text
+13. Variable shadowing - see mac notes
 
 ## Development
 
