@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => { // 1 wait til DOM is fully loaded before you do anything
+document.addEventListener("DOMContentLoaded", () => { 
 
-    // 2 declare your variables 
-
-    // Change querySelectors to IDs for tailwind
+    // DEFINE VARIABLES 
 
     const billInput = document.querySelector(".bill"); // bill total input
     const tipInput = document.querySelector(".tip"); // select tip % radio input 
@@ -12,57 +10,52 @@ document.addEventListener("DOMContentLoaded", () => { // 1 wait til DOM is fully
     const form = document.querySelector(".form"); // form div 
     const error = document.querySelector(".people-error"); // error msg 
     const customTip = document.querySelector(".custom"); // custom tip input 
-    const resetButton = document.querySelector(".reset"); // reset button
+    const resetButton = document.querySelector(".reset"); // reset button 
 
+    // FUNCTION DECLARATIONS 
 
-    // RESET BUTTON EVENT HANDLER 
+    // 1) CALCULATE TIP 
+    function calculateTip() { 
 
-    function resetCalculator() { 
+    // maybe all input fields need to go here? 
 
-        resetButton.addEventListener(e, onclick) { 
-            billInput.textContent = ""; 
-            customTip.textContent = "";
-            numberOfPeopleInput.textContent = ""; 
-            tipInput.checked = false; 
-        }
-    }
-
-
-
-    function calculateTip() {  // eventHandler 
-
-    // converts entered values from strings into numbers 
-
+    // CONVERT STRING INPUTS INTO USABLE VALUES 
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-    let tipPercentage= parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
+    let tipPercentage = parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
+    let customTip = 
 
-    // does calculations necessary 
+    // we want a condition where all 3 fields need to be entered before the calculation is done 
 
+    // CALCULATE TIP WITH THOSE VALUES 
     let tipValue = billValue * (tipPercentage / 100);
     let tipAmountPerPerson = tipPercentage / numberOfPeople; 
     let totalPerPerson = (tipPercentage + billValue) / numberOfPeople; 
 
-    // update the totals to .2 decimal places accordingly
+    // update DOM to show spans for tipAmountPerPerson and totalPerPerson  
+    // remember to use .toFixed(2) 
 
-    tipAmountPerPerson.textContent = `$${tipAmountPerPerson.toFixed(2)}`;
-    totalPerPerson.textContent = `$${totalPerPerson.toFixed(2)}`;
-    // toFixed is a method to convert the number value to a fixed decimal point with the number of places defined in the brackets e.g. `(2)`.
-}
+    }
 
-    billInput.addEventListener('input', calculateTip); // is this scoped right? This logic isn't right. You can't calculate the tip till teh % has been selected, or you wouldn't. 
-    numberOfPeopleInput.addEventListener('input', calculateTip);
-    customTip.addEventListener('input', e => {
-        // this needs something here 
-    })
+    // 2) RESET 
 
-    // only when we have all three values do we want the calc to run 
+    function reset() { 
+        billInput.value = ""; // check why it's value and not .textContent
+        tipInput.value = ""; 
+        numberOfPeopleInput.value = ""; 
+        tipInput.checked = false; 
+    }
 
-    // i think everything needs to be inside the function 
-    tip.addEventListener('click', calculateTip);
-    // tip isn't anything 
+    function errorMessage() { // where should this be called? 
+        if (numberOfPeople === 0) { 
+            error.display = "block"; // something like that 
+        }
+    }
 
-    reset.addEventListener('click', e => { 
-    // reset the calc, clear all fields, don't calculate anything 
-    })
+    // EVENT LISTENERS 
+
+    // RESET BUTTON EVENT HANDLER FOR RESET BUTTON TO EMPTY FIELDS 
+    resetButton.addEventListener("click", reset);  
+    form.addEventListener("input", calculateTip); 
+    // error listener here? 
 })
