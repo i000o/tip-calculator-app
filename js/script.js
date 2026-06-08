@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
     let tipPercentage = parseFloat(tipInput.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-    let customTip = 
+    // let customTip = 
 
     // we want a condition where all 3 fields need to be entered before the calculation is done 
 
     // CALCULATE TIP WITH THOSE VALUES 
     let tipValue = billValue * (tipPercentage / 100);
-    let tipAmountPerPerson = tipPercentage / numberOfPeople; 
-    let totalPerPerson = (tipPercentage + billValue) / numberOfPeople; 
+    let tipAmountPerPerson = tipValue / numberOfPeople; 
+    let totalPerPerson = (tipValue + billValue) / numberOfPeople; 
 
     // update DOM to show spans for tipAmountPerPerson and totalPerPerson  
     // remember to use .toFixed(2) 
