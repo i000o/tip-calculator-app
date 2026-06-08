@@ -12,9 +12,24 @@ document.addEventListener("DOMContentLoaded", () => { // 1 wait til DOM is fully
     const form = document.querySelector(".form"); // form div 
     const error = document.querySelector(".people-error"); // error msg 
     const customTip = document.querySelector(".custom"); // custom tip input 
-    const reset = document.querySelector(".reset"); // reset button
+    const resetButton = document.querySelector(".reset"); // reset button
 
-    function calculateTip() { 
+
+    // RESET BUTTON EVENT HANDLER 
+
+    function resetCalculator() { 
+
+        resetButton.addEventListener(e, onclick) { 
+            billInput.textContent = ""; 
+            customTip.textContent = "";
+            numberOfPeopleInput.textContent = ""; 
+            tipInput.checked = false; 
+        }
+    }
+
+
+
+    function calculateTip() {  // eventHandler 
 
     // converts entered values from strings into numbers 
 
