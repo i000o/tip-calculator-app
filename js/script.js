@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1) CALCULATE TIP 
     function calculateTip() { 
 
-    // maybe all input fields need to go here? 
+    
 
     // CONVERT STRING INPUTS INTO USABLE VALUES 
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // RESET BUTTON EVENT HANDLER FOR RESET BUTTON TO EMPTY FIELDS 
     resetButton.addEventListener("click", reset);  
-    form.addEventListener("input", calculateTip); 
+    billInput.addEventListener("input", calculateTip); 
+    tipInput.addEventListener("input", calculateTip);
+    numberOfPeopleInput.addEventListener("input", calculateTip);
     // error listener here? 
 })
