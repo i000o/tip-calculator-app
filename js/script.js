@@ -14,21 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // FUNCTION DECLARATIONS 
 
-    // 1) CALCULATE TIP 
+    // 1 CALCULATE TIP 
     function calculateTip() { 
 
     // CONVERT STRING INPUTS INTO USABLE VALUES 
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-    let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-    function errorMessage() { // where should this be called? 
-        if (numberOfPeople === 0) { 
-            error.style.display = "block"; 
-        }
-    }
+    let numberOfPeople = parseInt(numberOfPeopleInput.value, 10); // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
     let customValue = parseFloat(customTip.value) || 0; 
+    let tipPercetage; // how can I declare like this? this is a declaration but not an assignment? 
     const tipSelection = document.querySelector('input[name="tip"]:checked'); 
     if (tipSelection) { 
-        tipPercentage = parseFloat(tipSelection.value); 
+        tipPercentage = parseFloat(tipSelection.value);  // until here, it's assigned? 
     } else tipPercentage = 0; 
 
 
@@ -37,14 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
     let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing  
 
-    console.log(tipAmountValue, totalValue);
-
     // UPDATE THE TOTALS AND SHOW 
-    tipAmountValue.textContent = '$' + tipAmountValue.toFixed(2); 
-    totalValue.textContent = '$' + totalValue.toFixed(2);
+    tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); // this was tipAmountValue before - can't call .textContent on that 
+    totalPerPerson.textContent = '$' + totalValue.toFixed(2); // this was totalValue before - can't call .textContent on that
+    tipAmountPerPerson.style.display = 'block'; // spans didn't show with = ''; 
+    totalPerPerson.style.display = 'block'; // spans didn't show with = ''; 
     }
 
-    // 2) RESET 
+    // 2 ERROR 
+
+        function errorMessage() { // where should this be called? 
+        if (numberOfPeople === 0) { 
+            error.style.display = "block"; 
+        }
+    }
+
+    // 3 RESET 
     function reset() { 
         billInput.value = ""; 
         tipInputs.value = ""; // check if this is ok 
@@ -63,5 +67,3 @@ document.addEventListener("DOMContentLoaded", () => {
         tip.addEventListener("change", calculateTip); 
     });
 });
-
-// FIX TIPINPUTS > Retrives a NodeList which you can't use value on 
