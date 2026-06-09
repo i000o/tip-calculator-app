@@ -65,6 +65,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 13. Variable shadowing - see mac notes
 14. `const tipInputs = document.querySelectorAll(".tip"); // select tip % radio input` | `.value` can't be used on the NodeList that `querySelectorAll` retrieves.
 15. `   let numberOfPeople = parseInt(numberOfPeopleInput.value, 10);` removed `|| 1` because it doesn't allow for an error msg to appear if user enters `0`.
+16. Decision-making in CSS or JS: understanding that CSS can't read the relationship between elements for e.g. an error span and an input field. Use JS to build this interaction.
 
 ## Development
 
