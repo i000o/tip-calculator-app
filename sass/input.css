@@ -126,7 +126,7 @@ input[type=number]:hover {
 fieldset {
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(3, 50px);
   gap: 10px;
   margin: 10px 10px 10px 0;
   padding: 0;
@@ -155,7 +155,11 @@ fieldset {
   color: hsl(183, 100%, 15%);
 }
 
-/* INVALID STATE on no. of people input */
+/* ERROR SPAN */
+input[type=number]:user-invalid {
+  outline: solid 2px rgba(216, 131, 33, 0.692);
+}
+
 .custom {
   background-color: hsl(189, 47%, 97%);
   cursor: text;
@@ -214,6 +218,11 @@ p {
   display: none;
   color: hsl(172, 67%, 45%);
   font-size: 2em;
+}
+
+.people-error {
+  color: rgba(216, 131, 33, 0.692);
+  display: none;
 }
 
 footer {

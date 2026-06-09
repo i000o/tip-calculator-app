@@ -86,10 +86,6 @@ input[type="number"]:hover {
     outline: solid 2px hsl(172, 67%, 45%, 60%);
 }
 
-// automatically invalid bc fields are empty 
-// input[type="number"]:invalid { 
-//     outline: solid 2px rgba(216, 131, 33, 0.692);
-// }
 
 .bill { 
     background-image: url(../images/icon-dollar.svg);
@@ -111,7 +107,7 @@ input[type="number"]:hover {
 fieldset { 
     display: grid; 
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, auto); // this was just 3 before, invalid 
+    grid-template-rows: repeat(3, 50px); // initially was only repeat(3), then repeat(3, auto), now this because when I changed custom from radio input to number, it stretched the grid down 
     gap: 10px;
     margin: 10px 10px 10px 0;
     padding: 0;
@@ -135,14 +131,20 @@ fieldset {
     color: hsl(183, 100%, 15%); 
 }
 
-.tip:has(input:checked) { // was only .tip:checked before and didn't work 
-    background-color: hsl(172, 67%, 45%); // doesn't work yet 
+.tip:has(input:checked) { // was only .tip:checked before and didn't work // :has causes a JS bug in browser - bg sustains after reset 
+    background-color: hsl(172, 67%, 45%); 
     color: hsl(183, 100%, 15%); 
 }
 
-/* INVALID STATE on no. of people input */ 
+/* ERROR SPAN */ 
 
-.custom { 
+input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not 
+    outline: solid 2px rgba(216, 131, 33, 0.692);
+}
+
+// CUSTOM ENTRY 
+
+.custom { // label or input? you have both // HTML used to have class="custom" on <input> so I removed it 
     background-color: hsl(189, 47%, 97%);
     cursor: text;
     padding: 8px 0;
@@ -151,6 +153,12 @@ fieldset {
     font-size: 1.4em; 
     text-align: right;
 }
+
+// the input and label are not in the same spot 
+
+// input[placeholder="custom"] { 
+//     padding-bottom: 5px; 
+// }
 
 .custom:focus { 
     outline: solid 2px hsl(172, 67%, 45%); // outline not border  - doesn't work yet 
@@ -197,11 +205,18 @@ p {
     background-color: hsl(172, 67%, 45%, 60%); // not working 
 }
 
+// SPANS 
+
 .total-per-person, .tip-amount { 
     display: none; 
-    // style 
     color: hsl(172, 67%, 45%); 
     font-size: 2em; 
+}
+
+.people-error { 
+    color: rgba(216, 131, 33, 0.692); 
+    display: none; 
+
 }
 
 footer { 
