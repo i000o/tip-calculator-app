@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // CONVERT STRING INPUTS INTO USABLE VALUES 
     let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-    let tipPercentage = parseFloat(tipInputs.value) || 0; // this retrieves the value chosen from the tip amount buttons and stores it in 'tipPercentage'
     let numberOfPeople = parseInt(numberOfPeopleInput.value, 10) || 1; // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
     function errorMessage() { // where should this be called? 
         if (numberOfPeople === 0) { 
@@ -27,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     let customValue = parseFloat(customTip.value) || 0; 
+    const tipSelection = document.querySelector('input[name="tip"]:checked'); 
+    if (tipSelection) { 
+        tipPercentage = parseFloat(tipSelection.value); 
+    } else tipPercentage = 0; 
 
 
     // CALCULATE TIP WITH THOSE VALUES 
@@ -44,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2) RESET 
     function reset() { 
         billInput.value = ""; 
-        tipInputs.value = ""; 
+        tipInputs.value = ""; // check if this is ok 
         numberOfPeopleInput.value = ""; 
-        tipInputs.value = false; 
+        tipInputs.value = false; // same here 
     }
 
 
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     numberOfPeopleInput.addEventListener("input", calculateTip);
     // error listener here? 
     numberOfPeopleInput.addEventListener("input", errorMessage); // scope invisible ?
-    tipInputs.forEach(tip => { 
+    tipInputs.forEach(tip => { // don't change tipInputs here 
         tip.addEventListener("change", calculateTip); 
     });
 });
