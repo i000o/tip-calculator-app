@@ -138,15 +138,20 @@ fieldset {
 
 /* ERROR SPAN */ 
 
-input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not 
+// input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not 
+//     outline: solid 2px rgba(216, 131, 33, 0.692);
+// }
+
+#people.error { // id targetted for input 
     outline: solid 2px rgba(216, 131, 33, 0.692);
 }
 
 // CUSTOM ENTRY 
 
-.custom { // label or input? you have both // HTML used to have class="custom" on <input> so I removed it 
+.custom { // this is targetted <label> not <input> 
     background-color: hsl(189, 47%, 97%);
     cursor: text;
+    caret-color: hsl(172, 67%, 45%); // love this 
     padding: 8px 0;
     border-radius: 5px;
     color: hsl(186, 14%, 43%);
@@ -164,9 +169,9 @@ input[type="number"]:user-invalid { // difference between :invalid and :user-inv
     outline: solid 2px hsl(172, 67%, 45%); // outline not border  - doesn't work yet 
 }
 
-.custom:hover { 
-    outline: solid 2px hsl(172, 67%, 45%, 60%);
-}
+// .custom:hover { // this is unecessary because there is already a hover state on inputs of type="number", which includes .custom 
+//     outline: solid 2px hsl(172, 67%, 45%, 60%);
+// }
 
 .totals { // div 
     background-color: hsl(183, 100%, 15%);

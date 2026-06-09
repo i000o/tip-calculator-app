@@ -156,13 +156,14 @@ fieldset {
 }
 
 /* ERROR SPAN */
-input[type=number]:user-invalid {
+#people.error {
   outline: solid 2px rgba(216, 131, 33, 0.692);
 }
 
 .custom {
   background-color: hsl(189, 47%, 97%);
   cursor: text;
+  caret-color: hsl(172, 67%, 45%);
   padding: 8px 0;
   border-radius: 5px;
   color: hsl(186, 14%, 43%);
@@ -172,10 +173,6 @@ input[type=number]:user-invalid {
 
 .custom:focus {
   outline: solid 2px hsl(172, 67%, 45%);
-}
-
-.custom:hover {
-  outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
 .totals {
