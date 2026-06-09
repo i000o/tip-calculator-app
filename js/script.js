@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // CONVERT STRING INPUTS INTO USABLE VALUES 
         let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
         let numberOfPeople = parseInt(numberOfPeopleInput.value, 10); // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-            if (numberOfPeople) === 0 || isNaN(numberOfPeople) { 
+            if (numberOfPeople === 0 || isNaN(numberOfPeople)) { 
                 error.style.display = 'block';
+                return; // this is important  
             } else { 
                 error.style.display = 'none'; 
             }
@@ -46,13 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
         totalPerPerson.style.display = 'block'; // spans didn't show with = ''; 
         }
 
-        // 3 RESET 
+        // 3 RESET doesn't work 
         function reset() { 
             billInput.value = ""; 
             tipInputs.value = ""; // check if this is ok 
             numberOfPeopleInput.value = ""; 
             tipInputs.value = false; // same here 
-    }
+        }
 
 
     // EVENT LISTENERS 
