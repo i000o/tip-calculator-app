@@ -64,6 +64,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 12. On reset function, // is it .value or .textContent? Value for inputs, textContent for elements that display text
 13. Variable shadowing - see mac notes
 14. `const tipInputs = document.querySelectorAll(".tip"); // select tip % radio input` | `.value` can't be used on the NodeList that `querySelectorAll` retrieves.
+15. `   let numberOfPeople = parseInt(numberOfPeopleInput.value, 10);` removed `|| 1` because it doesn't allow for an error msg to appear if user enters `0`.
 
 ## Development
 
