@@ -1,77 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => { 
+    
+ // DEFINE VARIABLES 
 
-    // DEFINE VARIABLES 
+const billInput = document.querySelector(."bill"); 
+const tipInputs = document.querySelector(".tip"); 
+const numberOfPeopleInput = document.querySelector(".people"); 
+const tipAmountPerPerson = document.querySelector(".tip-amount"); 
+const totalPerPerson = document.querySelector(".total-per-person"); 
+const error = document.querySelector(".people-error"); 
+const customInput = document.querySelector(".custom"); 
+const resetButton = document.querySelector(".reset"); 
+const form = document.querySelector(".form"); 
 
-    const billInput = document.querySelector(".bill"); // bill total input
-    const tipInputs = document.querySelectorAll(".tip"); // select tip % radio inputs 
-    const numberOfPeopleInput = document.querySelector(".people"); // no. of people input 
-    const tipAmountPerPerson = document.querySelector(".tip-amount"); // tip amount span 
-    const totalPerPerson = document.querySelector(".total-per-person"); // total bill per person span
-    const error = document.querySelector(".people-error"); // error span 
-    const customTip = document.querySelector(".custom"); // custom tip input 
-    const resetButton = document.querySelector(".reset"); // reset button 
-
-    // FUNCTION DECLARATIONS 
+// FUNCTIONS 
 
     // 1 CALCULATE TIP 
+
     function calculateTip() { 
+    
+    // COLLECT VALUES 
 
-        // CONVERT STRING INPUTS INTO USABLE VALUES 
-        let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-        let numberOfPeople = parseInt(numberOfPeopleInput.value, 10); // this retrieves the value entered in the number of people field and stores it in the variable 'numberOfPeople'. We ask it to parse a number with radix Base 10. Radix number good to include with parseInt(). 
-            if (numberOfPeople === 0 || isNaN(numberOfPeople)) { // if the number of people entered is 0, or not a number, display the error span and then stop, otherwise hide the error span
-                error.style.display = 'block';
-                numberOfPeopleInput.classList.add('error'); // this makes this activate before the user has even attempted to enter anything // what is this line doing that the above isn't? 
-                return; // stop running 
-            } else { 
-                error.style.display = 'none'; 
-            }
-        let customValue = parseFloat(customTip.value) || 0; // is || 0 applicable here? How does this interact with checked radio buttons? THIS IS A RADIO TOO 
-        let tipPercetage; // how can I declare like this? this is a declaration but not an assignment? 
-        const tipSelection = document.querySelector('input[name="tip"]:checked'); // doesn't evaluate for custom entry I don't think 
-            if (tipSelection) { 
-                tipPercentage = parseFloat(tipSelection.value);  // until here, it's assigned? 
-            } else { 
-                tipPercentage = 0; 
-            }
+    let billValue = parseFloat(billInput.value) || 0; 
+    let numberOfPeopleValue = parseInt(numberOfPeopleInput.value, 10); 
+    let customValue = parseFloat(customInput.value) || 0; 
+    let tipPercentage = ""; // does this need to be here. This does need to be let because it's reassignable from radio/custom // see line 30 
+    const tipRadio = document.querySelector('input[name="tip":checked');
+    // TAKE THE VALUE FROM EITHER THE CHECKED RADIO OR THE CUSTOM ENTRY AND USE IT AS TIP % 
 
-        // CALCULATE TIP WITH THOSE VALUES 
-        let tipValue = billValue * (tipPercentage / 100);
-        let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
-        let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing  
-        // add consideration for customValue which you parse in line 29  
+        if (tipRadio) { // watch the variable naming here - is this name useful? what is this expression really doing? 
+            tipPercentage = parseFloat(tipSelection.value); 
+        } else { 
+            tipPercentage = parseFloat(customInput.value) || 0; 
+        } 
 
-        // UPDATE THE TOTALS AND SHOW 
-        tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); // this was tipAmountValue before - can't call .textContent on that because it's a number data type 
-        totalPerPerson.textContent = '$' + totalValue.toFixed(2); // this was totalValue before - can't call .textContent on that because it's a number data type 
-        tipAmountPerPerson.style.display = 'block'; // spans didn't show with = ''; 
-        totalPerPerson.style.display = 'block'; // spans didn't show with = ''; 
-        }
+    // IF/ELSE STATEMENT FOR NUMBER OF PEOPLE BEING 0 SHOW ERROR SPAN 
 
-        // 3 RESET doesn't work 
-        function reset() { 
-            billInput.value = ""; 
-            customTip.value = ""; // included here 
-            numberOfPeopleInput.value = ""; 
-            tipAmountPerPerson.style.display = 'none'; 
-            totalPerPerson.style.display = 'none';
-            tipInputs.forEach(tip => { // this is going over them all instead of the one that's checked, is there a better way? 
-                console.log("unchecking", tip); 
-                tip.checked = false; 
-            })
-            numberOfPeopleInput.classList.remove('error'); 
-        }
+    // CALC 
 
+    // UPDATE THE TOTALS AND SHOW THE SPANS 
 
-    // EVENT LISTENERS 
-    resetButton.addEventListener("click", reset);  
-    billInput.addEventListener("input", calculateTip); // this triggers early error outline on numberofpeopel 
-    numberOfPeopleInput.addEventListener("input", calculateTip);
-    // error listener here? 
-    tipInputs.forEach(tip => { // don't change tipInputs here // consider that custom doesn't have a "tip" class in the HTML 
-        tip.addEventListener("change", calculateTip); 
-    });
+    }
+
+    // 2 RESET 
+
+    // function reset { 
+
+    // }
+
+// EVENT LISTENERS 
+
+form.addEventListener("reset", reset); // "reset" event not "click"? 
+billInput.addEventListener("input", calculateTip); 
+numberOfPeopleInput.addEventListener("input", calculateTip); 
+customInput.addEventListener("input", () => { 
+    tipInputs.forEach(tipInput => tipInput.checked = false); 
+    calculateTip(); 
+}); 
+tipInputs.forEach(tipInput => () { 
+    tipInput.addEventListener("change", () => { 
+        customInput.value = ''; 
+        calculateTip(); 
+        });
 });
-
-
-// can the custom radio also have an type="number"? 
