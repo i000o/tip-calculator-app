@@ -161,8 +161,8 @@ fieldset {
 
 // the input and label are not in the same spot 
 
-// input[placeholder="custom"] { 
-//     padding-bottom: 5px; 
+// #custom { 
+//     margin-bottom: -10px; 
 // }
 
 .custom:focus { 
@@ -209,6 +209,8 @@ p {
 .reset:hover { 
     background-color: hsl(172, 67%, 45%, 60%); // not working 
 }
+
+// there is a reset inactive state 
 
 // SPANS 
 

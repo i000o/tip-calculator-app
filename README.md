@@ -67,6 +67,19 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 15. `   let numberOfPeople = parseInt(numberOfPeopleInput.value, 10);` removed `|| 1` because it doesn't allow for an error msg to appear if user enters `0`.
 16. Decision-making in CSS or JS: understanding that CSS can't read the relationship between elements for e.g. an error span and an input field. Use JS to build this interaction.
 17. `input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not `
+    tipInputs.value = false; // same here
+18. `` The above wasn't doing anything before because .value doesn't work on radios (NodeList), so we need to loop over them again and uncheck them all
+19. `value="custom"` puts this word in the field that the user has to remove before typing, `placeholder="custom"` puts it there only til the user wants to type.
+
+## Debugging
+
+1. Totals would remain visibel on reset. Added the below lines to function:
+   `tipAmountPerPerson.style.display = 'none';`
+   `totalPerPerson.style.display = 'none';`
+
+## To do
+
+- I wanna add something in the custom placeholder '%'
 
 ## Development
 
