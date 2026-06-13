@@ -70,6 +70,9 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
     tipInputs.value = false; // same here
 18. `` The above wasn't doing anything before because .value doesn't work on radios (NodeList), so we need to loop over them again and uncheck them all
 19. `value="custom"` puts this word in the field that the user has to remove before typing, `placeholder="custom"` puts it there only til the user wants to type.
+20. `reset` event over a `click`.
+21. Radio buttons return a NodeList which has `.forEach()` built in.
+22. Not recommended to use `reset` as an `input` type. Therefore changed `form.addEventListener("reset", reset); // "reset" event not "click"?` to `resetButton.addEventListener("click", reset); `
 
 ## Debugging
 
@@ -89,5 +92,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 [<input type="email">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email)
 [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation)
+[<input> Elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
 
 # tip-calculator-app
