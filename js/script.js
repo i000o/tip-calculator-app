@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
  // DEFINE VARIABLES 
 
 const billInput = document.querySelector(".bill"); 
-const tipInputs = document.querySelectorAll(".tip"); 
+const tipInputs = document.querySelectorAll('input[name="tip"]'); // this grabs label not input 
 const numberOfPeopleInput = document.querySelector(".people"); 
 const tipAmountPerPerson = document.querySelector(".tip-amount"); 
 const totalPerPerson = document.querySelector(".total-per-person"); 
@@ -79,7 +79,7 @@ const form = document.querySelector(".form");
     resetButton.addEventListener("click", reset); 
     billInput.addEventListener("input", calculateTip); 
     numberOfPeopleInput.addEventListener("input", calculateTip); 
-    customInput.addEventListener("input", () => { 
+    customInput.addEventListener("click", () => { 
         tipInputs.forEach(tipInput => tipInput.checked = false); 
         calculateTip(); 
     }); 
