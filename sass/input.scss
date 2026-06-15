@@ -131,24 +131,20 @@ fieldset {
     color: hsl(183, 100%, 15%); 
 }
 
-.tip:has(input:checked) { // was only .tip:checked before and didn't work // :has causes a JS bug in browser - bg sustains after reset 
+.tip:has(input:checked) { // 
     background-color: hsl(172, 67%, 45%); 
     color: hsl(183, 100%, 15%); 
 }
 
-/* ERROR SPAN */ 
-
-// input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not 
-//     outline: solid 2px rgba(216, 131, 33, 0.692);
-// }
-
-#people.error { // id targetted for input 
+#people.error{ // id targetted for input 
     outline: solid 2px rgba(216, 131, 33, 0.692);
 }
 
+
+
 // CUSTOM ENTRY 
 
-.custom { // this is targetted <label> not <input> 
+.custom { // this is targetting <label> not <input> 
     background-color: hsl(189, 47%, 97%);
     cursor: text;
     caret-color: hsl(172, 67%, 45%); // love this 
@@ -166,12 +162,8 @@ fieldset {
 // }
 
 .custom:focus { 
-    outline: solid 2px hsl(172, 67%, 45%); // outline not border  - doesn't work yet 
+    outline: solid 2px hsl(172, 67%, 45%);
 }
-
-// .custom:hover { // this is unecessary because there is already a hover state on inputs of type="number", which includes .custom 
-//     outline: solid 2px hsl(172, 67%, 45%, 60%);
-// }
 
 .totals { // div 
     background-color: hsl(183, 100%, 15%);
@@ -192,7 +184,7 @@ p {
 }
 
 .reset { 
-    background-color: hsl(172, 67%, 45%); // change 
+    background-color: hsl(172, 67%, 45%); 
     text-align: center;
     color: hsl(183, 100%, 15%);
     font-family: 'space mono', sans-serif;
@@ -207,10 +199,8 @@ p {
 }
 
 .reset:hover { 
-    background-color: hsl(172, 67%, 45%, 60%); // not working 
+    background-color: hsl(172, 67%, 75%);
 }
-
-// there is a reset inactive state 
 
 // SPANS 
 
@@ -223,7 +213,7 @@ p {
 .people-error { 
     color: rgba(216, 131, 33, 0.692); 
     display: none; 
-
+    z-index: 10; 
 }
 
 footer { 

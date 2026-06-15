@@ -154,7 +154,6 @@ fieldset {
   color: hsl(183, 100%, 15%);
 }
 
-/* ERROR SPAN */
 #people.error {
   outline: solid 2px rgba(216, 131, 33, 0.692);
 }
@@ -207,7 +206,7 @@ p {
 }
 
 .reset:hover {
-  background-color: hsla(172, 67%, 45%, 0.6);
+  background-color: hsl(172, 67%, 75%);
 }
 
 .total-per-person, .tip-amount {
@@ -219,6 +218,7 @@ p {
 .people-error {
   color: rgba(216, 131, 33, 0.692);
   display: none;
+  z-index: 10;
 }
 
 footer {
