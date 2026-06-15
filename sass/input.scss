@@ -78,14 +78,11 @@ input[type="number"] {
     font-weight: inherit; 
 }
 
-input[type="number"]:focus { 
-    outline: solid 2px hsl(172, 67%, 45%); // outline not border 
+input[type="number"]:focus, input[type="number"]:hover { 
+    outline: solid 2px hsl(172, 67%, 45%, 60%); // outline not border 
 }
 
-input[type="number"]:hover { 
-    outline: solid 2px hsl(172, 67%, 45%, 60%);
-}
-
+//  input[type="radio"]:focus targets radio focus but wrong 
 
 .bill { 
     background-image: url(../images/icon-dollar.svg);
@@ -140,8 +137,6 @@ fieldset {
     outline: solid 2px rgba(216, 131, 33, 0.692);
 }
 
-
-
 // CUSTOM ENTRY 
 
 .custom { // this is targetting <label> not <input> 
@@ -153,6 +148,7 @@ fieldset {
     color: hsl(186, 14%, 43%);
     font-size: 1.4em; 
     text-align: right;
+    padding-block: 0; // fixes off alignment of custom entry 
 }
 
 // the input and label are not in the same spot 
@@ -202,6 +198,10 @@ p {
     background-color: hsl(172, 67%, 75%);
 }
 
+.reset:focus { 
+    outline: solid 2px hsl(172, 67%, 45%, 60%); // outline not border 
+}
+
 // SPANS 
 
 .total-per-person, .tip-amount { 
@@ -210,10 +210,18 @@ p {
     font-size: 2em; 
 }
 
+.wrapper { 
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+}
+
 .people-error { 
     color: rgba(216, 131, 33, 0.692); 
     display: none; 
-    z-index: 10; 
+    text-align: right;
 }
 
 footer { 

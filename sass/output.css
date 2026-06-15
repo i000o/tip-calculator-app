@@ -97,11 +97,7 @@ input[type=number] {
   font-weight: inherit;
 }
 
-input[type=number]:focus {
-  outline: solid 2px hsl(172, 67%, 45%);
-}
-
-input[type=number]:hover {
+input[type=number]:focus, input[type=number]:hover {
   outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
@@ -167,6 +163,7 @@ fieldset {
   color: hsl(186, 14%, 43%);
   font-size: 1.4em;
   text-align: right;
+  padding-block: 0;
 }
 
 .custom:focus {
@@ -209,16 +206,28 @@ p {
   background-color: hsl(172, 67%, 75%);
 }
 
+.reset:focus {
+  outline: solid 2px hsla(172, 67%, 45%, 0.6);
+}
+
 .total-per-person, .tip-amount {
   display: none;
   color: hsl(172, 67%, 45%);
   font-size: 2em;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .people-error {
   color: rgba(216, 131, 33, 0.692);
   display: none;
-  z-index: 10;
+  text-align: right;
 }
 
 footer {
