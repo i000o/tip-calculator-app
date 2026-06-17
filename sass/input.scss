@@ -133,22 +133,18 @@ fieldset {
     color: hsl(183, 100%, 15%); 
 }
 
-#people.error{ // id targetted for input 
-    outline: solid 2px rgba(216, 131, 33, 0.692);
-}
-
 // CUSTOM ENTRY 
 
 .custom { // this is targetting <label> not <input> 
     background-color: hsl(189, 47%, 97%);
     cursor: text;
-    caret-color: hsl(172, 67%, 45%); // love this 
+    caret-color: hsl(172, 67%, 45%); // new property 
     padding: 8px 0;
     border-radius: 5px;
     color: hsl(186, 14%, 43%);
     font-size: 1.4em; 
     text-align: right;
-    padding-block: 0; // fixes off alignment of custom entry 
+    padding-block: 0; // fixes alignment of custom entry 
 }
 
 .custom:focus { 
@@ -212,7 +208,13 @@ p {
     width: 100%;
 }
 
-.people-error { 
+// ERROR STATE 
+
+#people.error { // id targetted for input 
+    outline: solid 2px rgba(216, 131, 33, 0.692);
+}
+
+.people-error { // span 
     color: rgba(216, 131, 33, 0.692); 
     display: none; 
     text-align: right;

@@ -150,10 +150,6 @@ fieldset {
   color: hsl(183, 100%, 15%);
 }
 
-#people.error {
-  outline: solid 2px rgba(216, 131, 33, 0.692);
-}
-
 .custom {
   background-color: hsl(189, 47%, 97%);
   cursor: text;
@@ -222,6 +218,10 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+#people.error {
+  outline: solid 2px rgba(216, 131, 33, 0.692);
 }
 
 .people-error {
