@@ -70,6 +70,7 @@ const resetButton = document.getElementById("reset");
         tipAmountPerPerson.style.display = 'none'; 
         totalPerPerson.style.display = 'none'; 
         error.style.display = 'none'; 
+        numberOfPeopleInput.classList.remove("error"); // wasn't initially included but worked? 
         tipInputs.forEach(tipInput => { 
             tipInput.checked = false; 
         })
