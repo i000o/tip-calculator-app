@@ -151,12 +151,6 @@ fieldset {
     padding-block: 0; // fixes off alignment of custom entry 
 }
 
-// the input and label are not in the same spot 
-
-// #custom { 
-//     margin-bottom: -10px; 
-// }
-
 .custom:focus { 
     outline: solid 2px hsl(172, 67%, 45%);
 }
@@ -229,5 +223,49 @@ footer {
     color: hsl(186, 14%, 43%);
     text-align: center;
     font-size: 0.5em;
+}
+
+@media screen and (min-width: 769px) { 
+
+    // body { 
+    //     // display: flex; 
+    //     // flex-direction: column; 
+    //     // flex-wrap: wrap; 
+    // }
+
+    // .logo, .card { 
+    //     flex: 0 0 90%; 
+    // }
+
+    // .logo { 
+    //     justify-self: stretch;
+    //     max-width: 10%; 
+    // }
+
+    // .card { 
+    //     min-width: 45em; 
+    //     // flex-wrap: nowrap;
+    //     display: flex; 
+    //     flex-direction: row;
+    //     gap: 1em; 
+    // }
+    
+    // .totals { 
+    //     flex: 0 0 50%; 
+    // }
+
+    .card {
+        display: flex; 
+        flex-direction: row; 
+    }
+    
+    .totals { 
+        width: 50%; 
+        flex: 0 0 auto; 
+    }
+
+    footer { 
+        display: none; 
+    }
 }
 
