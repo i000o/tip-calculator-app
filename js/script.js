@@ -3,14 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
  // DEFINE VARIABLES 
 
 const billInput = document.querySelector(".bill"); 
-const tipInputs = document.querySelectorAll('input[name="tip"]'); // this grabs label not input 
-const numberOfPeopleInput = document.querySelector(".people"); 
+const tipInputs = document.querySelectorAll('input[name="tip"]');  
+const numberOfPeopleInput = document.querySelector(".people"); // input not label 
 const tipAmountPerPerson = document.querySelector(".tip-amount"); 
 const totalPerPerson = document.querySelector(".total-per-person"); 
-const error = document.querySelector(".people-error"); 
+const error = document.querySelector(".people-error"); // span 
 const customInput = document.getElementById("custom"); 
-const resetButton = document.getElementById("reset"); // changed from class selector 
-const form = document.querySelector(".form"); 
+const resetButton = document.getElementById("reset"); 
 
 // FUNCTIONS 
 
@@ -23,7 +22,8 @@ const form = document.querySelector(".form");
     let numberOfPeopleValue = parseInt(numberOfPeopleInput.value, 10); 
         if (numberOfPeopleValue === 0) { 
             error.textContent = "Can't be zero"; // I was missing this before 
-            error.style.display = 'block';  
+            error.style.display = 'inline-block'; //   
+            numberOfPeopleInput.classList.add("error"); 
             tipAmountPerPerson.textContent = '$0.00'; 
             totalPerPerson.textContent = '$0.00'; 
             tipAmountPerPerson.style.display = 'block'; 
@@ -31,6 +31,7 @@ const form = document.querySelector(".form");
             return; 
         } else { 
             error.style.display = 'none'; 
+            numberOfPeopleInput.classList.remove("error"); 
         }
         if (!numberOfPeopleValue) { 
             numberOfPeopleValue = 1; 
