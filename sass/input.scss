@@ -229,36 +229,13 @@ footer {
 
 @media screen and (min-width: 769px) { 
 
-    // body { 
-    //     // display: flex; 
-    //     // flex-direction: column; 
-    //     // flex-wrap: wrap; 
-    // }
-
-    // .logo, .card { 
-    //     flex: 0 0 90%; 
-    // }
-
-    // .logo { 
-    //     justify-self: stretch;
-    //     max-width: 10%; 
-    // }
-
-    // .card { 
-    //     min-width: 45em; 
-    //     // flex-wrap: nowrap;
-    //     display: flex; 
-    //     flex-direction: row;
-    //     gap: 1em; 
-    // }
-    
-    // .totals { 
-    //     flex: 0 0 50%; 
-    // }
-
     .card {
         display: flex; 
         flex-direction: row; 
+    }
+
+    .desktop-wrapper { 
+        padding-right: 20px; 
     }
     
     .totals { 

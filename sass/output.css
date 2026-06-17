@@ -242,6 +242,9 @@ footer {
     display: flex;
     flex-direction: row;
   }
+  .desktop-wrapper {
+    padding-right: 20px;
+  }
   .totals {
     width: 50%;
     flex: 0 0 auto;
