@@ -229,6 +229,12 @@ footer {
 
 @media screen and (min-width: 769px) { 
 
+    .logo { 
+        width: 80px; 
+        margin-top: 70px; 
+        margin-bottom: 50px;  
+    }
+
     .card {
         display: flex; 
         flex-direction: row; 
@@ -241,6 +247,16 @@ footer {
     .totals { 
         width: 50%; 
         flex: 0 0 auto; 
+    }
+    
+    .desktop-total, .desktop-tip {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .reset { 
+        margin-top: 150px; 
     }
 
     footer { 
