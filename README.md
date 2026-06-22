@@ -1,7 +1,7 @@
 # Tip Calculator
 
 [Live Site URL](https://i000o.github.io/tip-calculator-app/)  
-[Outcome](/design/desktop-screenshot.png)
+![Outcome](/design/desktop-screenshot.png)
 
 ---
 
@@ -31,10 +31,10 @@ This app always splits the bill evenly and only displays a single currency.
 
 ## Decisions
 
-**No fallback value in calc**
+**No fallback value in calc**  
 Calculation does not default to `numberOfPeopleValue === 1` when user attempts to enter `0` to apply error state the brief asks for. Alternatively, this fallback would've made the calcuilation cleaner, but required additional UI to signal to the user that no splitting has been performed.
 
-**Opted out of using historic reset button, used `button` type and `click` event instead**
+**Opted out of using historic reset button, used `button` type and `click` event instead**  
 Used `type="button"` instead of `type="reset"` on reset button element. MDN advises against using a reset input due to inconsistent behaviour. Switched to `type="button"` with a `click` listener, which reliably cleared all inputs and states while `reset` left some inconsistencies.
 
 ---
@@ -48,7 +48,7 @@ The previously selected radio button remained checked after reset. Used console 
 Spans displaying totals persisted after reset. Added explicit `style.display = 'none'` to the reset function for both to clear.
 
 **Variable shadowing breaking tip/total display**  
-`tipAmountPerPerson` and `totalPerPerson` were declared at the top level as DOM element references, then re-declared inside `calculateTip` as calculated values — the inner `let` declarations shadowed the outer const ones. No error was thrown; the function silently used the wrong values, since the outer DOM references were unreachable from inside the function. Renamed the inner variables to `tipAmountValue` and `totalValue` and used in `calculateTip()` rather.
+`tipAmountPerPerson` and `totalPerPerson` were declared at the top level as DOM element references, then re-declared inside `calculateTip` as calculated values — the inner `let` declarations shadowed the outer const ones. No error was thrown; the function silently used the wrong values, since the outer DOM references were unreachable from inside the function. Renamed the inner variables to `tipAmountValue` and `totalValue` and used in `calculateTip()`.
 
 **Error state persisting on reset**  
 `numberOfPeopleInput` styling remained on reset, not removing the "error" class. Added `numberOfPeopleInput.classList.remove("error")` to the reset function which resolved it.
