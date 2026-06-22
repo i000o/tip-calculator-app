@@ -1,7 +1,7 @@
 # Tip Calculator
 
-[Live Site URL]()  
-[Solution URL]()
+[Live Site URL](https://i000o.github.io/tip-calculator-app/)  
+[Outcome](/design/desktop-screenshot.png)
 
 ---
 
@@ -25,7 +25,7 @@ This is a tip calculator based on the design brief provided by [Frontend Mentor]
 
 This app always splits the bill evenly and only displays a single currency.
 
-**Tags:** `#scss` `#vanillajs`
+`#scss` `#vanillajs`
 
 ---
 
@@ -37,6 +37,8 @@ Calculation does not default to `numberOfPeopleValue === 1` when user attempts t
 **Opted out of using historic reset button, used `button` type and `click` event instead**
 Used `type="button"` instead of `type="reset"` on reset button element. MDN advises against using a reset input due to inconsistent behaviour. Switched to `type="button"` with a `click` listener, which reliably cleared all inputs and states while `reset` left some inconsistencies.
 
+---
+
 ## Debugging
 
 **Radio checked state persisting after reset**  
@@ -45,10 +47,10 @@ The previously selected radio button remained checked after reset. Used console 
 **Totals remaining visible after reset**  
 Spans displaying totals persisted after reset. Added explicit `style.display = 'none'` to the reset function for both to clear.
 
-**Variable shadowing breaking tip/total display**
+**Variable shadowing breaking tip/total display**  
 `tipAmountPerPerson` and `totalPerPerson` were declared at the top level as DOM element references, then re-declared inside `calculateTip` as calculated values — the inner `let` declarations shadowed the outer const ones. No error was thrown; the function silently used the wrong values, since the outer DOM references were unreachable from inside the function. Renamed the inner variables to `tipAmountValue` and `totalValue` and used in `calculateTip()` rather.
 
-**Error state persisting on reset**
+**Error state persisting on reset**  
 `numberOfPeopleInput` styling remained on reset, not removing the "error" class. Added `numberOfPeopleInput.classList.remove("error")` to the reset function which resolved it.
 
 ---
@@ -58,5 +60,3 @@ Spans displaying totals persisted after reset. Added explicit `style.display = '
 - Add `%` to custom input placeholder text to indicate to user that they can enter a 2-digit value that doesn't appear in the radio options.
 - Focus states on radios aren't accessible. In Chrome, they skip over when tabbing through the form. In Firefox, they only hit the first instance, indicated by a small circle which isn't easy to see, and then skips over the other radios straight to custom. Other focus states function normally.
 - The reset button has an inactive style on the design brief, in a darkened state. A blend mode or alternative could be used to dim this button until totals are shown.
-
----
