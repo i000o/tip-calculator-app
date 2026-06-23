@@ -1,67 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => { 
+    
+ // DEFINE VARIABLES 
 
-    // DEFINE VARIABLES 
+const billInput = document.querySelector(".bill"); 
+const tipInputs = document.querySelectorAll('input[name="tip"]');  
+const numberOfPeopleInput = document.querySelector(".people"); // input not label 
+const tipAmountPerPerson = document.querySelector(".tip-amount"); 
+const totalPerPerson = document.querySelector(".total-per-person"); 
+const error = document.querySelector(".people-error"); // span 
+const customInput = document.getElementById("custom"); 
+const resetButton = document.getElementById("reset"); 
 
-    const billInput = document.querySelector(".bill"); // bill total input
-    const tipInputs = document.querySelectorAll(".tip"); // select tip % radio input 
-    const numberOfPeopleInput = document.querySelector(".people"); // no. of people input 
-    const tipAmountPerPerson = document.querySelector(".tip-amount"); // show tip amount span 
-    const totalPerPerson = document.querySelector(".total-per-person"); // show total bill per person span
-    const form = document.querySelector(".form"); // form div 
-    const error = document.querySelector(".people-error"); // error msg 
-    const customTip = document.querySelector(".custom"); // custom tip input 
-    const resetButton = document.querySelector(".reset"); // reset button 
-
-    // FUNCTION DECLARATIONS 
+// FUNCTIONS 
 
     // 1 CALCULATE TIP 
+
     function calculateTip() { 
+    // COLLECT VALUES 
 
-        // CONVERT STRING INPUTS INTO USABLE VALUES 
-        let billValue = parseFloat(billInput.value) || 0; // this retrieves the value entered in the Bill field and stores it in the variable 'billValue'
-        let numberOfPeople = parseInt(numberOfPeopleInput.value, 10); // this retrieves the value entered in the number of people field and stores it in 'numberOfPeople'. We ask it to parse a number with radix Base 10 (decimals for money) as long as the outcome is truthy, otherwise use 1 person. 
-            if (numberOfPeople === 0 || isNaN(numberOfPeople)) { 
-                error.style.display = 'block';
-                return; // this is important  
-            } else { 
-                error.style.display = 'none'; 
-            }
-        let customValue = parseFloat(customTip.value) || 0; 
-        let tipPercetage; // how can I declare like this? this is a declaration but not an assignment? 
-        const tipSelection = document.querySelector('input[name="tip"]:checked'); 
-            if (tipSelection) { 
-                tipPercentage = parseFloat(tipSelection.value);  // until here, it's assigned? 
-            } else { 
-                tipPercentage = 0; 
-            }
-
-        // CALCULATE TIP WITH THOSE VALUES 
-        let tipValue = billValue * (tipPercentage / 100);
-        let tipAmountValue = tipValue / numberOfPeople; // changed variable name to avoid shadowing 
-        let totalValue = (tipValue + billValue) / numberOfPeople;  // changed variable name to avoid shadowing  
-
-        // UPDATE THE TOTALS AND SHOW 
-        tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); // this was tipAmountValue before - can't call .textContent on that 
-        totalPerPerson.textContent = '$' + totalValue.toFixed(2); // this was totalValue before - can't call .textContent on that
-        tipAmountPerPerson.style.display = 'block'; // spans didn't show with = ''; 
-        totalPerPerson.style.display = 'block'; // spans didn't show with = ''; 
+    let billValue = parseFloat(billInput.value) || 0; 
+    let numberOfPeopleValue = parseInt(numberOfPeopleInput.value, 10); 
+        if (numberOfPeopleValue === 0) { 
+            error.textContent = "Can't be zero"; // I was missing this before 
+            error.style.display = 'inline-block'; //   
+            numberOfPeopleInput.classList.add("error"); 
+            tipAmountPerPerson.textContent = '$0.00'; 
+            totalPerPerson.textContent = '$0.00'; 
+            tipAmountPerPerson.style.display = 'block'; 
+            totalPerPerson.style.display = 'block'; 
+            return; 
+        } else { 
+            error.style.display = 'none'; 
+            numberOfPeopleInput.classList.remove("error"); 
+        }
+        if (!numberOfPeopleValue) { 
+            numberOfPeopleValue = 1; 
+        }
+    let customValue = parseFloat(customInput.value); 
+    let tipPercentage;
+    const tipSelection = document.querySelector('input[name="tip"]:checked');
+        if (customValue) { 
+            tipPercentage = customValue;
+        } else if (tipSelection) { 
+            tipPercentage = parseFloat(tipSelection.value); 
+        } else { 
+            tipPercentage = 0; 
         }
 
-        // 3 RESET doesn't work 
-        function reset() { 
-            billInput.value = ""; 
-            tipInputs.value = ""; // check if this is ok 
-            numberOfPeopleInput.value = ""; 
-            tipInputs.value = false; // same here 
-        }
+    // CALC 
 
+    let tipValue = billValue * (tipPercentage / 100); 
+    let tipAmountValue = tipValue / numberOfPeopleValue; 
+    let totalValue = (tipValue + billValue) / numberOfPeopleValue; 
 
-    // EVENT LISTENERS 
-    resetButton.addEventListener("click", reset);  
+    // UPDATE THE TOTALS AND SHOW THE SPANS 
+
+    tipAmountPerPerson.textContent = '$' + tipAmountValue.toFixed(2); 
+    totalPerPerson.textContent = '$' + totalValue.toFixed(2); 
+    tipAmountPerPerson.style.display = 'block'; 
+    totalPerPerson.style.display = 'block'; 
+    }
+
+    // 2 RESET 
+
+    function reset() { 
+        billInput.value = ""; 
+        customInput.value = ""; 
+        numberOfPeopleInput.value = ""; 
+        tipAmountPerPerson.style.display = 'none'; 
+        totalPerPerson.style.display = 'none'; 
+        error.style.display = 'none'; 
+        numberOfPeopleInput.classList.remove("error"); // wasn't initially included but worked? 
+        tipInputs.forEach(tipInput => { 
+            tipInput.checked = false; 
+        })
+    }
+
+// EVENT LISTENERS 
+
+    resetButton.addEventListener("click", reset); 
     billInput.addEventListener("input", calculateTip); 
-    numberOfPeopleInput.addEventListener("input", calculateTip);
-    // error listener here? 
-    tipInputs.forEach(tip => { // don't change tipInputs here 
-        tip.addEventListener("change", calculateTip); 
-    });
-});
+    numberOfPeopleInput.addEventListener("input", calculateTip); 
+    customInput.addEventListener("click", () => { 
+        tipInputs.forEach(tipInput => tipInput.checked = false); 
+        calculateTip(); 
+    }); 
+    tipInputs.forEach(tipInput => { 
+        tipInput.addEventListener("change", () => { 
+            customInput.value = ''; 
+            calculateTip(); 
+            });
+    }); 
+}); 

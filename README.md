@@ -1,80 +1,62 @@
-# Frontend Mentor - Tip calculator app solution
+# Tip Calculator
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
+[Live Site URL](https://i000o.github.io/tip-calculator-app/)  
+![Outcome](/design/desktop-screenshot.png)
+
+---
 
 ## Table of contents
 
-- [Overview](#overview)
-- [Focus](#focus)
-- [Outcome](#outcome)
-- [Process](#process)
-- [Built with](#built-with)
-- [Lessons](#lessons)
-- [Development](#development)
-- [Useful resources](#useful-resources)
+- [Purpose & Scope](#purpose-and-scope)
+- [Decisions](#decisions)
+- [Debugging](#debugging)
+- [Future](#future)
 
-## Overview
+---
 
-## Focus
+## Purpose & Scope
 
-## Outcome
+This is a tip calculator based on the design brief provided by [Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Its features include:
 
-![]()
+- Takes bill input, number of people input and a tip input and calculates a tip per person and total per person to display reactively.
+- Takes custom input type field over a given radio button tip selection. Calculation only uses one of the two values, never both.
+- Presents an error state when user enters 0 in number of people field.
+- Reset button clears all fields for new entry.
 
-:jigsaw: [Live Site URL]()  
-:pencil2: [Solution URL]()
+This app always splits the bill evenly and only displays a single currency.
 
-## Built with
+`#scss` `#vanillajs`
 
-:gear: Semantic HTML5 markup  
-:gear: CSS  
-:gear: Mobile-first workflow  
-:gear: Sass  
-:gear: JavaScript
+---
 
-## To-do
+## Decisions
 
-- Fix `<ol>` overspilling on right side of container
-- Use JS to style checked states on radio buttons - can't do it with CSS
-- Do more JS on the tip calculator
-- Finalise mobile
+**No fallback value in calc**  
+Calculation does not default to `numberOfPeopleValue === 1` when user attempts to enter `0` to apply error state the brief asks for. Alternatively, this fallback would've made the calcuilation cleaner, but required additional UI to signal to the user that no splitting has been performed.
 
-## Process
+**Opted out of using historic reset button, used `button` type and `click` event instead**  
+Used `type="button"` instead of `type="reset"` on reset button element. MDN advises against using a reset input due to inconsistent behaviour. Switched to `type="button"` with a `click` listener, which reliably cleared all inputs and states while `reset` left some inconsistencies.
 
-- Techniques necessary: DOM Manipulation & Event Handling
-- Struggling with `<li>` covering `<input>`
+---
 
-## Time taken
+## Debugging
 
-:timer_clock:
+**Radio checked state persisting after reset**  
+The previously selected radio button remained checked after reset. Used console to check if my listener was clearing checked radios on reset and found checked states weren't being cleared. My variable was targetting the input `labels` not `input` elements directly and so setting `.checked = false` did nothing. I rewrote the selector to `querySelectorAll('input[name="tip"]')` and reset then cleared correctly.
 
-## Lessons
+**Totals remaining visible after reset**  
+Spans displaying totals persisted after reset. Added explicit `style.display = 'none'` to the reset function for both to clear.
 
-1. A _floating point number_ in programming is what we refer to decimal or fractional numbers with, as opposed to an integer.
-2. `<input>` values are always strings in Javascript, even if they're entered as numbers. Therefore, we need to convert them into the Number data type.
-3. The `.toFixed()` method asks Javascript to convert the number value to a fixed decimal point with the number of places defined in the brackets e.g. `(2)`.
-4. `+` is an adjacent sibling combintaor selector in CSS, it targets an element directly following, but not nested in the previous. They are siblings, not children.
-5. Because here, my `<input>`'s are nested inside `<label>`, the `+` combinator won't work since they aren't siblings. Instead, I have to use JS to style the checked states. I hadn't done this before.
-6. I created my first testing branch and merged with main :slightly_smiling_face:. I used git commands, `git checkout -b gridflex-testing`, `git push -u origin gridflex-testing` and `git checkout` and `git merge`.
-7. When using `:focus`, use `outline` not `border` to style.
-8. You don't need `e.preventDefault();` in your JS when there's no submit in the form.
-9. A floating number in JS is a fractional number, not an integer. In this case, we use `parseFloat` for decimal numbers and `parseInt` for whole numbers.
-10. _Parsing_ - In JavaScript, input fields are read as strings e.g. `"12"` instead of `12`. Therefore, this data needs to be converted into the correct type so that it can be used. In this case, we need to parse number strings into number values so they can be used in the tip calculation.
-11. `.tip:has(input:checked) { // was only .tip:checked before and didn't work `
-12. On reset function, // is it .value or .textContent? Value for inputs, textContent for elements that display text
-13. Variable shadowing - see mac notes
-14. `const tipInputs = document.querySelectorAll(".tip"); // select tip % radio input` | `.value` can't be used on the NodeList that `querySelectorAll` retrieves.
-15. `   let numberOfPeople = parseInt(numberOfPeopleInput.value, 10);` removed `|| 1` because it doesn't allow for an error msg to appear if user enters `0`.
-16. Decision-making in CSS or JS: understanding that CSS can't read the relationship between elements for e.g. an error span and an input field. Use JS to build this interaction.
-17. `input[type="number"]:user-invalid { // difference between :invalid and :user-invalid. One shows error state on empty (page load), and one waits til the user has interacted wth the field before making a judgement about whether to use the error state or not `
+**Variable shadowing breaking tip/total display**  
+`tipAmountPerPerson` and `totalPerPerson` were declared at the top level as DOM element references, then re-declared inside `calculateTip` as calculated values — the inner `let` declarations shadowed the outer const ones. No error was thrown; the function silently used the wrong values, since the outer DOM references were unreachable from inside the function. Renamed the inner variables to `tipAmountValue` and `totalValue` and used in `calculateTip()`.
 
-## Development
+**Error state persisting on reset**  
+`numberOfPeopleInput` styling remained on reset, not removing the "error" class. Added `numberOfPeopleInput.classList.remove("error")` to the reset function which resolved it.
 
--
+---
 
-## Useful resources
+## Future
 
-[<input type="email">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email)
-[Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation)
-
-# tip-calculator-app
+- Add `%` to custom input placeholder text to indicate to user that they can enter a 2-digit value that doesn't appear in the radio options.
+- Focus states on radios aren't accessible. In Chrome, they skip over when tabbing through the form. In Firefox, they only hit the first instance, indicated by a small circle which isn't easy to see, and then skips over the other radios straight to custom. Other focus states function normally.
+- The reset button has an inactive style on the design brief, in a darkened state. A blend mode or alternative could be used to dim this button until totals are shown.

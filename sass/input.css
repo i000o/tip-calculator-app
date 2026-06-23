@@ -98,11 +98,7 @@ input[type=number] {
   font-weight: inherit;
 }
 
-input[type=number]:focus {
-  outline: solid 2px hsl(172, 67%, 45%);
-}
-
-input[type=number]:hover {
+input[type=number]:focus, input[type=number]:hover {
   outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
@@ -155,11 +151,6 @@ fieldset {
   color: hsl(183, 100%, 15%);
 }
 
-/* ERROR SPAN */
-#people.error {
-  outline: solid 2px rgba(216, 131, 33, 0.692);
-}
-
 .custom {
   background-color: hsl(189, 47%, 97%);
   cursor: text;
@@ -169,6 +160,7 @@ fieldset {
   color: hsl(186, 14%, 43%);
   font-size: 1.4em;
   text-align: right;
+  padding-block: 0;
 }
 
 .custom:focus {
@@ -208,7 +200,11 @@ p {
 }
 
 .reset:hover {
-  background-color: hsla(172, 67%, 45%, 0.6);
+  background-color: hsl(172, 67%, 75%);
+}
+
+.reset:focus {
+  outline: solid 2px hsla(172, 67%, 45%, 0.6);
 }
 
 .total-per-person, .tip-amount {
@@ -217,9 +213,22 @@ p {
   font-size: 2em;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#people.error {
+  outline: solid 2px rgba(216, 131, 33, 0.692);
+}
+
 .people-error {
   color: rgba(216, 131, 33, 0.692);
   display: none;
+  text-align: right;
 }
 
 footer {
@@ -227,4 +236,35 @@ footer {
   color: hsl(186, 14%, 43%);
   text-align: center;
   font-size: 0.5em;
+}
+
+@media screen and (min-width: 769px) {
+  .logo {
+    width: 80px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+  }
+  .desktop-wrapper {
+    padding-right: 20px;
+  }
+  .totals {
+    width: 50%;
+    flex: 0 0 auto;
+  }
+  .desktop-total, .desktop-tip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reset {
+    margin-top: 150px;
+  }
+  footer {
+    display: none;
+  }
 }/*# sourceMappingURL=input.css.map */
